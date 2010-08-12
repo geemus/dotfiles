@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+rm ~/.bash_profile
+ln -s ~/dotfiles/bash_profile ~/.bash_profile
+
+rm ~/.bashrc
+ln -s ~/dotfiles/bashrc ~/.bashrc
+
+rm ~/.gemrc
+ln -s ~/dotfiles/gemrc ~/.gemrc
+
+rm ~/.git-completion
+ln -s ~/dotfiles/git-completion ~/.git-completion
+
+rm ~/.vimrc
+ln -s ~/dotfiles/vimrc ~/.vimrc
+
+source ~/.bash_profile
