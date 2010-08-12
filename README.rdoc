@@ -8,7 +8,7 @@ In your home directory:
 
 Now copy bits and pieces out, or do like I do and just replace what is there (NOTE: DESTRUCTIVE!):
 
-  ~/dotfiles/install
+  ~/dotfiles/bin/install
 
 Enjoy!
 
