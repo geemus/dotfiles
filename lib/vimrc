@@ -1,5 +1,6 @@
 set nocompatible 		  " avoid crazy vi backwards compatibility stuff
 
+" misc
 filetype plugin indent on	  " enable filetype detection
 syntax enable			  " enable syntax highlighting
 set background=dark               " set dark background
@@ -20,5 +21,9 @@ set visualbell			  " use visual rather than audible bell
 set wildmenu 			  " command line tab completion
 set wildmode=list:longest 	  " file name tab completion
 
+" colorscheme
 hi clear
 hi LineNr term=none ctermbg=none ctermfg=Grey
+
+" use pathogen to handle plugins
+call pathogen#runtime_append_all_bundles()

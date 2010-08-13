@@ -12,6 +12,9 @@ ln -s ~/dotfiles/lib/gemrc ~/.gemrc
 rm ~/.git-completion
 ln -s ~/dotfiles/lib/git-completion ~/.git-completion
 
+rm ~/.vim
+ln -s ~/dotfiles/lib/vim ~/.vim
+
 rm ~/.vimrc
 ln -s ~/dotfiles/lib/vimrc ~/.vimrc
 
