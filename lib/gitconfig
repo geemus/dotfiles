@@ -1,0 +1,12 @@
+[apply]
+	whitespace = fix
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[core]
+	whitespace = trailing-space,space-before-tab
+[user]
+	name = geemus
+	email = geemus@gmail.com

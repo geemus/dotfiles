@@ -9,6 +9,9 @@ ln -s ~/dotfiles/lib/bashrc ~/.bashrc
 rm ~/.gemrc
 ln -s ~/dotfiles/lib/gemrc ~/.gemrc
 
+rm ~/.gitconfig
+ln -s ~/dotfiles/lib/gitconfig ~/.gitconfig
+
 rm ~/.git-completion
 ln -s ~/dotfiles/lib/git-completion ~/.git-completion
 
