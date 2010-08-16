@@ -29,8 +29,15 @@ set wildmode=list:longest 	      " file name tab completion
 filetype plugin indent on	        " enable filetype detection for syntax and indent rules
 
 " colorscheme
+" [Black, Blue, Green, Cyan, Red, Magenta, Brown, Grey, Yellow, White]
 hi clear
-hi LineNr term=none ctermbg=none ctermfg=Grey
+hi Comment    ctermbg=none  ctermfg=Grey  cterm=none
+hi LineNr     ctermbg=none  ctermfg=Grey  cterm=none
+hi ModeMsg    ctermbg=none  ctermfg=Grey  cterm=bold
+hi MoreMsg    ctermbg=none  ctermfg=Grey  cterm=bold
+hi Question   ctermbg=none  ctermfg=Grey  cterm=bold
+hi Special    ctermbg=none  ctermfg=Grey  cterm=bold
+hi StatusLine ctermbg=Grey  ctermfg=Black cterm=none
 
 " use pathogen to handle plugins
 call pathogen#runtime_append_all_bundles()
