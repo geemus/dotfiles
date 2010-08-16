@@ -12,6 +12,7 @@ set laststatus=2		              " always display status line
 set number			                  " show line numbers
 set nobackup			                " do not make a backup before overwriting a file
 set nowritebackup		              " do not make a backup before overwriting a file
+set noswapfile                    " do not create swap files
 set ruler			                    " show cursor position
 set showcmd			                  " display incomplete commands
 set shiftwidth=2                  " number of spaces used for each step in indentation
