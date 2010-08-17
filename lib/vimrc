@@ -9,7 +9,7 @@ set expandtab                       " expand tab to spaces in insert mode
 set hidden                          " nicer multiple buffer handling
 set ignorecase                      " case-insensitive searching
 set laststatus=2                    " always display status line
-set list listchars=tab:\ \ ,trail:· " show trailing whitespace
+set list listchars=tab:\ \ ,trail:␣ " show trailing whitespace
 set number                          " show line numbers
 set nobackup                        " do not make a backup before overwriting a file
 set noswapfile                      " do not create swap files
@@ -38,8 +38,10 @@ hi Comment    ctermbg=none  ctermfg=Grey  cterm=none
 hi LineNr     ctermbg=none  ctermfg=Grey  cterm=none
 hi ModeMsg    ctermbg=none  ctermfg=Grey  cterm=bold
 hi MoreMsg    ctermbg=none  ctermfg=Grey  cterm=bold
+hi NonText    ctermbg=none  ctermfg=Grey  cterm=bold
 hi Question   ctermbg=none  ctermfg=Grey  cterm=bold
 hi Special    ctermbg=none  ctermfg=Grey  cterm=bold
+hi SpecialKey ctermbg=Grey  ctermfg=Black cterm=none
 hi StatusLine ctermbg=Grey  ctermfg=Black cterm=none
 
 " use pathogen to handle plugins
