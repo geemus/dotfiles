@@ -2,6 +2,9 @@
 
 cd ~/dotfiles && git submodule update
 
+rm ~/.aliases
+ln -s ~/dotfiles/lib/aliases ~/.aliases
+
 rm ~/.bash_profile
 ln -s ~/dotfiles/lib/bash_profile ~/.bash_profile
 
