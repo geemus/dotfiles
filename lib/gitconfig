@@ -1,12 +1,18 @@
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
 [apply]
-	whitespace = fix
+  whitespace = fix
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 [core]
-	whitespace = trailing-space,space-before-tab
+  whitespace = trailing-space,space-before-tab
 [user]
-	name = geemus
-	email = geemus@gmail.com
+  name = geemus
+  email = geemus@gmail.com
