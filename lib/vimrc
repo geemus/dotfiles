@@ -9,7 +9,6 @@ set expandtab                     " expand tab to spaces in insert mode
 set hidden                        " nicer multiple buffer handling
 set ignorecase                    " case-insensitive searching
 set laststatus=2                  " always display status line
-set list                          " show hidden characters
 set number                        " show line numbers
 set nobackup                      " do not make a backup before overwriting a file
 set nowritebackup                 " do not make a backup before overwriting a file
