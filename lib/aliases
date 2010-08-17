@@ -1,1 +1,2 @@
 alias :e='vim'
+alias be='bundle exec'
