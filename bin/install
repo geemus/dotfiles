@@ -2,28 +2,15 @@
 
 cd ~/dotfiles && git submodule update
 
-rm ~/.aliases
-ln -s ~/dotfiles/lib/aliases ~/.aliases
+FILES=( 'aliases' 'bash_profile' 'bashrc' 'gemrc' 'gitconfig' 'git-completion' 'vim' 'vimrc')
 
-rm ~/.bash_profile
-ln -s ~/dotfiles/lib/bash_profile ~/.bash_profile
+echo "installing dotfiles..."
 
-rm ~/.bashrc
-ln -s ~/dotfiles/lib/bashrc ~/.bashrc
-
-rm ~/.gemrc
-ln -s ~/dotfiles/lib/gemrc ~/.gemrc
-
-rm ~/.gitconfig
-ln -s ~/dotfiles/lib/gitconfig ~/.gitconfig
-
-rm ~/.git-completion
-ln -s ~/dotfiles/lib/git-completion ~/.git-completion
-
-rm ~/.vim
-ln -s ~/dotfiles/lib/vim ~/.vim
-
-rm ~/.vimrc
-ln -s ~/dotfiles/lib/vimrc ~/.vimrc
+for FILE in ${FILES[@]}
+do
+  echo "  ${FILE}"
+  rm ~/.${FILE}
+  ln -s ~/dotfiles/lib/${FILE} ~/.${FILE}
+done
 
 source ~/.bash_profile
