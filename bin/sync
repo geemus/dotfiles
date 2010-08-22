@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+PROJECTS=( 'excon' 'fog' 'formatador' 'geemus.github.com' 'gestalt' 'googleajax' 'prototypes' 'radome' 'rakegem' 'shindo' 'slides' 'tach' )
+
+echo "syncing projects..."
+
+for PROJECT in ${PROJECTS[@]}
+do
+  echo "  ${PROJECT}"
+  if [ ! -d ~/geemus/${PROJECT} ]; then
+    cd ~/geemus && git clone git@github.com:geemus/${PROJECT} >> /dev/null
+  fi
+  cd ~/geemus/formatador && git pull >> /dev/null
+done
