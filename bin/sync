@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 
-PROJECTS=( 'excon' 'fog' 'formatador' 'geemus.github.com' 'gestalt' 'googleajax' 'prototypes' 'radome' 'rakegem' 'shindo' 'slides' 'tach' )
+PROJECTS=(
+  'excon'
+  'fog'
+  'formatador'
+  'geemus.github.com'
+  'gestalt'
+  'googleajax'
+  'prototypes'
+  'radome'
+  'rakegem'
+  'shindo'
+  'tach'
+)
 
 echo "syncing projects..."
 
