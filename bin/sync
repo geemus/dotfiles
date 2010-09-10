@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
 PROJECTS=(
+  'dynaru'
   'excon'
   'fog'
   'formatador'
-  'geemus.github.com'
   'gestalt'
-  'googleajax'
   'prototypes'
   'radome'
   'rakegem'
