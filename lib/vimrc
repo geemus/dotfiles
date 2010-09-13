@@ -44,6 +44,7 @@ hi Special      ctermbg=none  ctermfg=Grey  cterm=bold
 hi SpecialKey   ctermbg=Grey  ctermfg=Black cterm=none
 hi StatusLine   ctermbg=Grey  ctermfg=Black cterm=bold
 hi StatusLineNC ctermbg=Grey  ctermfg=Black cterm=none
+hi VertSplit    ctermbg=Grey  ctermfg=Grey  cterm=none
 
 " use pathogen to handle plugins
 call pathogen#runtime_append_all_bundles()
