@@ -11,6 +11,7 @@ PROJECTS=(
   'rakegem'
   'shindo'
   'tach'
+  'writemorerobot'
 )
 
 echo "syncing projects..."
