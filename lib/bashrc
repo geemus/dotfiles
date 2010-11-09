@@ -5,8 +5,7 @@ source ~/.git-completion
 source ~/.aliases
 
 function parse_git_dirty {
- [ -d .git ] || return 1
- [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo " ☠"
+ [[ $(git status 2> /dev/null | grep '(use "git') ]] && echo " ☠"
 }
 function parse_git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]$(parse_git_dirty)/"
