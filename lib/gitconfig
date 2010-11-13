@@ -16,3 +16,5 @@
 [user]
   name = geemus
   email = geemus@gmail.com
+[rerere]
+  enabled = 1
