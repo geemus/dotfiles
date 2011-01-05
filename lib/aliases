@@ -1,1 +1,2 @@
 alias be='bundle exec'
+[[ `which pbcopy` = '' ]] && alias pbcopy='xclip -selection clipboard'
