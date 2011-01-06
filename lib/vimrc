@@ -53,6 +53,7 @@ call pathogen#runtime_append_all_bundles()
 
 " LookupFile
 let g:LookupFile_DefaultCmd = ':LUWalk'   " use walk by default
+let g:LookupFile_UpdateTime = 100         " only wait 100 milliseconds to start
 let g:LookupFile_MinPatLength = 2         " allow patterns of only 2 (default 4)
 let g:LookupFile_ShowFiller = 0           " fix menu flashiness
 let g:LookupFile_PreserveLastPattern = 0  " start with blank, rather than last pattern
