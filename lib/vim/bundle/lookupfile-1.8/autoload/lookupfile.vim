@@ -150,6 +150,8 @@ function! s:SetupBuf()
   inoremap <silent> <buffer> <expr> <C-E> <SID>HidePopup()
   inoremap <silent> <buffer> <expr> <CR> <SID>AcceptFile(0, "\<CR>")
   inoremap <silent> <buffer> <expr> <C-O> <SID>AcceptFile(1, "\<C-O>")
+  " FIXME hack lets tab act like enter
+  inoremap <silent> <buffer> <expr> <Tab> <SID>AcceptFile(0, "\<CR>")
   " This prevents the "Whole line completion" from getting triggered with <BS>,
   " however this might make the dropdown kind of flash.
   inoremap <buffer> <expr> <BS>       pumvisible()?"\<C-E>\<BS>":"\<BS>"
