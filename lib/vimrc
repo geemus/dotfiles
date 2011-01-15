@@ -48,6 +48,9 @@ hi StatusLine   ctermbg=Grey  ctermfg=Black cterm=bold
 hi StatusLineNC ctermbg=Grey  ctermfg=Black cterm=none
 hi VertSplit    ctermbg=Grey  ctermfg=Grey  cterm=none
 
+" jump to last known position after opening file if '" mark is set
+:au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " use pathogen to handle plugins
 call pathogen#runtime_append_all_bundles()
 
