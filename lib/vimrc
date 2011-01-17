@@ -29,7 +29,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set tabstop=2                       " number of spaces a tab stands for
 set visualbell                      " use visual rather than audible bell
 set wildmenu                        " command line tab completion
-set wildmode=list:longest           " file name tab completion
+set wildmode=longest:full           " file name tab completion
 
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 
