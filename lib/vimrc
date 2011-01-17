@@ -29,7 +29,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set tabstop=2                       " number of spaces a tab stands for
 set visualbell                      " use visual rather than audible bell
 set wildmenu                        " command line tab completion
-set wildmode=longest:full           " file name tab completion
+set wildmode=longest,full           " file name tab completion
 
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 
@@ -54,15 +54,8 @@ hi VertSplit    ctermbg=Grey  ctermfg=Grey  cterm=none
 " use pathogen to handle plugins
 call pathogen#runtime_append_all_bundles()
 
-" LookupFile
-let g:LookupFile_DefaultCmd = ':LUWalk'   " use walk by default
-let g:LookupFile_UpdateTime = 100         " only wait 100 milliseconds to start
-let g:LookupFile_MinPatLength = 2         " allow patterns of only 2 (default 4)
-let g:LookupFile_ShowFiller = 0           " fix menu flashiness
-let g:LookupFile_PreserveLastPattern = 0  " start with blank, rather than last pattern
-
 " Source vimrc file after saving changes
 " http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
 if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost ~/dotfiles/lib/vimrc source $MYVIMRC
 endif
