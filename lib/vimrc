@@ -4,6 +4,7 @@ set nocompatible                    " avoid crazy vi backwards compatibility stu
 syntax enable                       " enable syntax highlighting
 set autoindent                      " automatically set indent of new line
 set background=light                " set light background
+set cursorline                      " highlight current cursor line
 set directory=$HOME/.vim/tmp//,.    " keep swap files in one location
 set expandtab                       " expand tab to spaces in insert mode
 set hidden                          " nicer multiple buffer handling
