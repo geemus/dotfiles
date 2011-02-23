@@ -23,9 +23,10 @@ set showcmd                         " display incomplete commands
 set shiftwidth=2                    " number of spaces used for each step in indentation
 set showmode                        " display the current mode
 set smartcase                       " case-sensitive searching when expression contains capital letters
-set smartindent                     " more clever autoindenting behavior
+set smartindent                     " more clever auto-indenting behavior
 set smarttab                        " tabs in an indent insert 'shiftwidth' spaces
 set softtabstop=2                   " number of spaces to insert for a tab
+set spell                           " mark English misspellings
 set statusline=[%n]\ %<%.99f\%h%w%m%r%y\%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l/%L,%c-%v\%)
 set tabstop=2                       " number of spaces a tab stands for
 set visualbell                      " use visual rather than audible bell
@@ -34,7 +35,7 @@ set wildmode=longest,full           " file name tab completion
 
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 
-" colorscheme
+" color scheme
 " [Black, Blue, Green, Cyan, Red, Magenta, Brown, Grey, Yellow, White]
 hi clear
 hi Comment      ctermbg=none  ctermfg=Grey  cterm=none
