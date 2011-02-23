@@ -26,7 +26,6 @@ set smartcase                       " case-sensitive searching when expression c
 set smartindent                     " more clever auto-indenting behavior
 set smarttab                        " tabs in an indent insert 'shiftwidth' spaces
 set softtabstop=2                   " number of spaces to insert for a tab
-set spell                           " mark English misspellings
 set statusline=[%n]\ %<%.99f\%h%w%m%r%y\%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l/%L,%c-%v\%)
 set tabstop=2                       " number of spaces a tab stands for
 set visualbell                      " use visual rather than audible bell
