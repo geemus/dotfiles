@@ -38,7 +38,7 @@ filetype plugin indent on           " enable filetype detection for syntax and i
 " [Black, Blue, Green, Cyan, Red, Magenta, Brown, Grey, Yellow, White]
 hi clear
 hi Comment      ctermbg=none  ctermfg=Grey  cterm=none
-hi CursorLine   ctermbg=Grey  ctermfg=none  cterm=none
+hi CursorLine   ctermbg=none  ctermfg=none  cterm=bold
 hi LineNr       ctermbg=none  ctermfg=Grey  cterm=none
 hi ModeMsg      ctermbg=none  ctermfg=Grey  cterm=bold
 hi MoreMsg      ctermbg=none  ctermfg=Grey  cterm=bold
