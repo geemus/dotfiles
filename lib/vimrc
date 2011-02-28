@@ -56,6 +56,26 @@ hi VertSplit    ctermbg=Grey  ctermfg=Grey  cterm=none
 " use pathogen to handle plugins
 call pathogen#runtime_append_all_bundles()
 
+" nice auto-magic tab completion
+function! SuperCleverTab()
+  " check if at beginning of line or after a space
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+    return "\<Tab>"
+  else
+    if &omnifunc != ''
+      " omni-completion
+      return "\<C-X>\<C-O>"
+    elseif &dictionary != ''
+      " dictionary completion
+      return "\<C-K>"
+    else
+      " known-word completion
+      return "\<C-N>"
+    endif
+  endif
+endfunction
+inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+
 " Source vimrc file after saving changes
 " http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
 if has("autocmd")
