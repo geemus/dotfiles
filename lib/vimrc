@@ -58,8 +58,11 @@ call pathogen#runtime_append_all_bundles()
 
 " nice auto-magic tab completion
 function! SuperCleverTab()
-  " check if at beginning of line or after a space
-  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+  " check if at beginning of line
+  if col('.') == 1
+    return "\<Tab>"
+  " check if previous character is whitespace
+  elseif strpart( getline('.'), col('.')-2, 1 ) == ' '
     return "\<Tab>"
   else
     if &omnifunc != ''
