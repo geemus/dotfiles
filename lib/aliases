@@ -1,4 +1,5 @@
 alias be='bundle exec'
 alias br='bundle exec ruby'
+alias bru='bundle exec rackup'
 [[ `which pbcopy` = '' ]] && alias pbcopy='xclip -selection clipboard'
 [[ `which hub` = '' ]] || alias git=hub
