@@ -13,6 +13,8 @@
   interactive = auto
 [core]
   whitespace = trailing-space,space-before-tab
+[github]
+  user = geemus
 [user]
   name = geemus
   email = geemus@gmail.com
