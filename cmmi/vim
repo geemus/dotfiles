@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+curl ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2 > vim-7.3.tar.bz2
+bunzip2 vim-7.3.tar.bz2
+tar -xf vim-7.3.tar
+rm vim-7.3.tar
+cd vim73
+
+./configure --enable-multibyte --enable-rubyinterp
+make
+make install
+
+cd ..
+rm -rf vim73

@@ -1,6 +1,6 @@
 export EDITOR='vim'
 export GIT_EDITOR='vim'
-export PATH=$HOME/local/node/bin:$PATH
+export PATH=/usr/local/bin:$HOME/local/node/bin:$PATH
 
 source ~/.git-completion
 source ~/.aliases
