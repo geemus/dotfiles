@@ -3,6 +3,7 @@ set nocompatible                    " avoid crazy vi backwards compatibility stu
 " misc
 syntax enable                       " enable syntax highlighting
 set background=light                " set light background
+set backspace=2                     " set backspace
 set cursorline                      " highlight current cursor line
 set directory=$HOME/.vim/tmp//,.    " keep swap files in one location
 set expandtab                       " expand tab to spaces in insert mode
