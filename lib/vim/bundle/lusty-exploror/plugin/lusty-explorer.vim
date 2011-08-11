@@ -1850,7 +1850,12 @@ class Display
       # Special characters
       VIM::command "#{map} <Tab>    :call <SID>#{prefix}KeyPressed(9)<CR>"
       VIM::command "#{map} <Bslash> :call <SID>#{prefix}KeyPressed(92)<CR>"
-      VIM::command "#{map} <Space>  :call <SID>#{prefix}KeyPressed(32)<CR>"
+
+      # use space/tab interchangably
+      # VIM::command "#{map} <Space>  :call <SID>#{prefix}KeyPressed(32)<CR>"
+      VIM::command "#{map} <Shift><Space>  :call <SID>#{prefix}KeyPressed(32)<CR>"
+      VIM::command "#{map} <Space>  :call <SID>#{prefix}KeyPressed(9)<CR>"
+
       VIM::command "#{map} \026|    :call <SID>#{prefix}KeyPressed(124)<CR>"
 
       VIM::command "#{map} <BS>     :call <SID>#{prefix}KeyPressed(8)<CR>"
