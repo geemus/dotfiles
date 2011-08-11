@@ -34,6 +34,9 @@ set wildmode=longest,full           " file name tab completion
 
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 
+" use ;/: interchangably
+noremap ; :
+
 " keymappings for lusty stuff
 nmap <silent> <Leader>f :LustyFilesystemExplorer<CR>
 nmap <silent> <Leader>b :LustyBufferExplorer<CR>
