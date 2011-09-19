@@ -45,6 +45,9 @@ nmap <silent> <Leader>g :LustyBufferGrep<CR>
 nmap <silent> <Leader>j :LustyJuggler<CR>
 nmap <silent> <TAB>     :LustyJugglePrevious<CR>
 
+" keymappings for NERD tree
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
+
 " color scheme
 " [Black, Blue, Green, Cyan, Red, Magenta, Brown, Grey, Yellow, White]
 hi clear
