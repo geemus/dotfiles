@@ -1,0 +1,6 @@
+hardstatus alwayslastline '%{+b .wk} %w'
+startup_message off       # no startup message
+vbell           on        # visual bell
+
+# screens to start by default
+# screen -t name # command
