@@ -37,6 +37,9 @@ filetype plugin indent on           " enable filetype detection for syntax and i
 " use ;/: interchangably
 noremap ; :
 
+" allow the . to execute once for each line of a visual selection
+vnoremap . :normal .<CR>
+
 " keymappings for lusty stuff
 nmap <silent> <Leader>f :LustyFilesystemExplorer<CR>
 nmap <silent> <Leader>b :LustyBufferExplorer<CR>
