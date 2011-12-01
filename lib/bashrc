@@ -2,8 +2,9 @@ export EDITOR='vim'
 export GIT_EDITOR='vim'
 export PATH=/usr/local/bin:$HOME/local/node/bin:$PATH
 
-source ~/.git-completion
 source ~/.aliases
+[[ -s $HOME/.environment ]] && source $HOME/.environment
+source ~/.git-completion
 
 function parse_git_dirty {
  [[ $(git status 2> /dev/null | grep '(use "git') ]] && echo " ☠"
