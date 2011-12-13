@@ -1,5 +1,6 @@
 alias be='bundle exec'
 alias br='bundle exec ruby'
+alias bra='bundle exec rake'
 alias bru='bundle exec rackup'
 alias :e='vim'
 alias :q='exit'
