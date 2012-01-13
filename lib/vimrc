@@ -2,7 +2,7 @@ set nocompatible                    " avoid crazy vi backwards compatibility stu
 
 " misc
 syntax enable                       " enable syntax highlighting
-set background=light                " set light background
+set background=dark                 " set light background
 set backspace=2                     " set backspace
 set cursorline                      " highlight current cursor line
 set directory=$HOME/.vim/tmp//,.    " keep swap files in one location
@@ -32,6 +32,7 @@ set visualbell                      " use visual rather than audible bell
 set wildmenu                        " command line tab completion
 set wildmode=longest,full           " file name tab completion
 
+colorscheme solarized
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 
 " use ;/: interchangably
@@ -42,22 +43,6 @@ vnoremap . :normal .<CR>
 
 " keymappings for NERD tree
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
-
-" color scheme
-" [Black, Blue, Green, Cyan, Red, Magenta, Brown, Grey, Yellow, White]
-hi clear
-hi Comment      ctermbg=none  ctermfg=Grey  cterm=none
-hi CursorLine   ctermbg=none  ctermfg=none  cterm=bold
-hi LineNr       ctermbg=none  ctermfg=Grey  cterm=none
-hi ModeMsg      ctermbg=none  ctermfg=Grey  cterm=bold
-hi MoreMsg      ctermbg=none  ctermfg=Grey  cterm=bold
-hi NonText      ctermbg=none  ctermfg=Grey  cterm=bold
-hi Question     ctermbg=none  ctermfg=Grey  cterm=bold
-hi Special      ctermbg=none  ctermfg=Grey  cterm=bold
-hi SpecialKey   ctermbg=Grey  ctermfg=Black cterm=none
-hi StatusLine   ctermbg=Grey  ctermfg=Black cterm=bold
-hi StatusLineNC ctermbg=Grey  ctermfg=Black cterm=none
-hi VertSplit    ctermbg=Grey  ctermfg=Grey  cterm=none
 
 " jump to last known position after opening file if '" mark is set
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
