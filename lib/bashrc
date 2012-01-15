@@ -11,11 +11,11 @@ function git_branch {
 }
 function git_dirty {
   if [[ $(git status 2> /dev/null | grep '(use "git') ]]; then
-    echo " ☠ "
+    echo "☠"
   else
-    echo " ⌘ "
+    echo "⌘"
   fi
 }
-export PS1='\h \w$(git_branch)$(git_dirty) '
+export PS1='\h  \w$(git_branch)  $(git_dirty)  '
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
