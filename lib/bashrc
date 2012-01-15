@@ -6,12 +6,16 @@ source ~/.aliases
 [[ -s $HOME/.environment ]] && source $HOME/.environment
 source ~/.git-completion
 
-function parse_git_dirty {
- [[ $(git status 2> /dev/null | grep '(use "git') ]] && echo " ☠"
+function git_branch {
+ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
-function parse_git_branch {
- git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]$(parse_git_dirty)/"
+function git_dirty {
+  if [[ $(git status 2> /dev/null | grep '(use "git') ]]; then
+    echo " ☠"
+  else
+    echo " ⌘ "
+  fi
 }
-export PS1='\h \W$(parse_git_branch) ⌘ '
+export PS1='\h \W$(git_branch)$(git_dirty) '
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
