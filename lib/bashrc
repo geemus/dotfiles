@@ -11,7 +11,7 @@ function git_branch {
 }
 function git_dirty {
   if [[ $(git status 2> /dev/null | grep '(use "git') ]]; then
-    echo " ☠"
+    echo " ☠ "
   else
     echo " ⌘ "
   fi
