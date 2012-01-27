@@ -22,6 +22,7 @@ set ruler                           " show cursor position
 set showcmd                         " display incomplete commands
 set shiftwidth=2                    " number of spaces used for each step in indentation
 set showmode                        " display the current mode
+set showtabline=2                   " always display tab line
 set smartcase                       " case-sensitive searching when expression contains capital letters
 set smartindent                     " more clever auto-indenting behavior
 set smarttab                        " tabs in an indent insert 'shiftwidth' spaces
@@ -37,6 +38,11 @@ filetype plugin indent on           " enable filetype detection for syntax and i
 
 " use ;/: interchangably
 noremap ; :
+
+" use tab to switch to next tab
+noremap <Tab> :tabn<CR>
+" use shift-tab to switch to previous tab
+noremap <S-Tab> :tabp<CR>
 
 " allow the . to execute once for each line of a visual selection
 vnoremap . :normal .<CR>
