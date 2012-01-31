@@ -11,7 +11,7 @@ set hidden                          " nicer multiple buffer handling
 set ignorecase                      " case-insensitive searching
 set isk+=_,$,@,%,#,-                " mark rubyisms as keywords
 set laststatus=2                    " always display status line
-set list listchars=tab:\ \ ,trail:␣ " show trailing whitespace
+set list listchars=tab:\ \ ,trail:$ " show trailing whitespace
 let mapleader=','                   " more accessible leader character
 set number                          " show line numbers
 set nobackup                        " do not make a backup before overwriting a file
