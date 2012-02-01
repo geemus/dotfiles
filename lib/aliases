@@ -3,6 +3,7 @@ alias bra='bundle exec rake'
 alias br='bundle exec ruby'
 alias bru='bundle exec rackup'
 alias db='/Users/geemus/heroku/docbrown/bin/docbrown'
+alias gsu='git submodule update --init --recursive'
 alias h='heroku'
 [[ `which pbcopy` = '' ]] && alias pbcopy='xclip -selection clipboard'
 [[ `which hub` = '' ]] || alias git=hub
