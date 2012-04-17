@@ -5,5 +5,6 @@ alias bru='bundle exec rackup'
 alias db='/Users/geemus/heroku/docbrown/bin/docbrown'
 alias gsu='git submodule update --init --recursive'
 alias h='heroku'
+alias t='todo.sh -d /Users/geemus/.todo.cfg'
 [[ `which pbcopy` = '' ]] && alias pbcopy='xclip -selection clipboard'
 [[ `which hub` = '' ]] || alias git=hub

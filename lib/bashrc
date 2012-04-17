@@ -1,6 +1,7 @@
 export EDITOR='vim'
 export GIT_EDITOR='vim'
 export PATH=/usr/local/bin:$HOME/local/node/bin:$PATH
+export TODOTXT_DEFAULT_ACTION=ls
 
 source ~/.aliases
 [[ -s $HOME/.environment ]] && source $HOME/.environment
