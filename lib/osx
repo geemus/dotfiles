@@ -1,0 +1,14 @@
+# borrowed from: https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+
+# Menu bar: disable transparency
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+# Enable full keyboard access for all controls
+# (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock "dashboard-in-overlay" -bool true
