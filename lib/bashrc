@@ -6,6 +6,7 @@ export TODOTXT_DEFAULT_ACTION=ls
 source ~/.aliases
 [[ -s $HOME/.environment ]] && source $HOME/.environment
 source ~/.git-completion
+source ~/.hub-completion
 
 function git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
