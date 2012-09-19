@@ -22,4 +22,4 @@ export PS1='\h  \w$(git_branch)  $(git_dirty)  '
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
-PATH=$PATH:~/bin:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.bin:$HOME/.rvm/bin # Add RVM to PATH for scripting

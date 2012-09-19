@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+account = `git config --get remote.origin.url`.strip.split(':').last.split('/').first
+branch = `git symbolic-ref HEAD`.strip.split('/').last
+`hub pull-request -h #{account}:#{branch} -i #{ARGV.first}`
