@@ -15,6 +15,7 @@ data = {
   :issue  => ARGV.first
 }
 
+require 'rubygems'
 require 'excon'
 require 'json'
 Excon.post(
@@ -22,5 +23,6 @@ Excon.post(
   :body => data.to_json,
   :headers => {
     'Authorization' => 'Basic ' << ['' << ENV['GITHUB_USER'] << ':' << ENV['GITHUB_PASS']].pack('m').delete(Excon::CR_NL)
-  }
+  },
+  :nonblock => false
 )
