@@ -8,6 +8,14 @@ source ~/.aliases
 source ~/.git-completion
 source ~/.hub-completion
 
+HISTCONTROL=ignoredups:erasedups  # don't keep duplicate history entries
+HISTSIZE=10000                    # larger history
+HISTFILESIZE=$HISTSIZE            # larger history file
+shopt -s histreedit # re-edit history substitution line on failure
+shopt -s histverify # edit a recalled history before executing
+# append to history, clear history, load history from file, prompt
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 function git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
