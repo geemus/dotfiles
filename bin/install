@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/dotfiles && git submodule update
+cd ~/geemus/dotfiles && git submodule update
 
 FILES=('aliases' 'bash_profile' 'bashrc' 'bin' 'gemrc' 'gitconfig' 'git-completion' 'hub-completion' 'inputrc' 'osx' 'rvmrc' 'screenrc' 'todo.cfg' 'vim' 'vimrc')
 
@@ -10,7 +10,7 @@ for FILE in ${FILES[@]}
 do
   echo "  ${FILE}"
   rm ~/.${FILE}
-  ln -s ~/dotfiles/lib/${FILE} ~/.${FILE}
+  ln -s ~/geemus/dotfiles/lib/${FILE} ~/.${FILE}
 done
 
 source ~/.bash_profile
