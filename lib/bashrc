@@ -28,6 +28,7 @@ function git_dirty {
 }
 export PS1='\h  \w$(git_branch)  $(git_dirty)  '
 
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+# add ~/.bin and ~/.rbenv/bin
+PATH=$PATH:$HOME/.bin:$HOME/.rbenv/bin
 
-PATH=$PATH:$HOME/.bin:$HOME/.rvm/bin # Add RVM to PATH for scripting
+eval "$(rbenv init -)"
