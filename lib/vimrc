@@ -29,6 +29,7 @@ set smarttab                        " tabs in an indent insert 'shiftwidth' spac
 set softtabstop=2                   " number of spaces to insert for a tab
 set statusline=[%n]\ %<%.99f\%h%w%m%r%y\%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l/%L,%c-%v\%)
 set tabstop=2                       " number of spaces a tab stands for
+set t_Co=256                        " 256 terminal colors
 set visualbell                      " use visual rather than audible bell
 set wildmenu                        " command line tab completion
 set wildmode=longest,full           " file name tab completion
