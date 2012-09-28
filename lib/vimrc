@@ -34,7 +34,6 @@ set visualbell                      " use visual rather than audible bell
 set wildmenu                        " command line tab completion
 set wildmode=longest,full           " file name tab completion
 
-colorscheme solarized
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 
 " use ;/: interchangably
@@ -56,6 +55,7 @@ nmap <silent> <Leader>n :NERDTreeToggle<CR>
 
 " use pathogen to handle plugins
 call pathogen#runtime_append_all_bundles()
+colorscheme solarized
 
 " nice auto-magic tab completion
 function! SuperCleverTab()
