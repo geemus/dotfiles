@@ -1,0 +1,27 @@
+[submodule "lib/vim/bundle/YankRing.vim"]
+  path = lib/vim/bundle/YankRing.vim
+  url = git://github.com/vim-scripts/YankRing.vim.git
+[submodule "lib/vim/bundle/ctrlp.vim"]
+	path = lib/vim/bundle/ctrlp.vim
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "lib/vim/bundle/genutils"]
+	path = lib/vim/bundle/genutils
+	url = git://github.com/vim-scripts/genutils.git
+[submodule "lib/vim/bundle/nerdtree"]
+	path = lib/vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "lib/vim/bundle/syntastic"]
+	path = lib/vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "lib/vim/bundle/vim-colors-solarized"]
+  path = lib/vim/bundle/vim-colors-solarized
+  url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "lib/vim/bundle/vim-gitignore"]
+	path = lib/vim/bundle/vim-gitignore
+	url = git://github.com/vitaly/vim-gitignore.git
+[submodule "lib/vim/bundle/vim-slime"]
+	path = lib/vim/bundle/vim-slime
+	url = git://github.com/jpalardy/vim-slime.git
+[submodule "lib/vim/bundle/vim-surround"]
+	path = lib/vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
