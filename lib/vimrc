@@ -54,6 +54,7 @@ nmap <silent> <Leader>n :NERDTreeToggle<CR>
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " use pathogen to handle plugins
+let g:ctrlp_ext_vars = [] " fix for broken behavior from recent ctrlp
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 colorscheme solarized
