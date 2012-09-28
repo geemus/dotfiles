@@ -19,6 +19,9 @@
 [submodule "lib/vim/bundle/vim-gitignore"]
 	path = lib/vim/bundle/vim-gitignore
 	url = git://github.com/vitaly/vim-gitignore.git
+[submodule "lib/vim/bundle/vim-pathogen"]
+	path = lib/vim/bundle/vim-pathogen
+	url = git://github.com/tpope/vim-pathogen.git
 [submodule "lib/vim/bundle/vim-slime"]
 	path = lib/vim/bundle/vim-slime
 	url = git://github.com/jpalardy/vim-slime.git
