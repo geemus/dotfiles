@@ -2,27 +2,37 @@
 # encoding: UTF-8
 
 account, repo = `git config --get remote.origin.url`.strip.split(':').last.split('/')
-repo = repo.split('.').first
-branch = `git symbolic-ref HEAD`.strip.split('/').last
-#`hub pull-request -h #{account}:#{branch} -i #{ARGV.first}`
+repo          = repo.split('.').first
+branch        = `git symbolic-ref HEAD`.strip.split('/').last
+issue         = ARGV.first
 
 # make sure remote branch has latest and greatest from local
 `git push origin #{branch}`
 
-data = {
-  :base   => 'master',
-  :head   => "#{account}:#{branch}",
-  :issue  => ARGV.first
-}
-
 require 'rubygems'
 require 'excon'
 require 'json'
-Excon.post(
-  "https://api.github.com/repos/#{account}/#{repo}/pulls",
-  :body => data.to_json,
-  :headers => {
-    'Authorization' => 'Basic ' << ['' << ENV['GITHUB_USER'] << ':' << ENV['GITHUB_PASS']].pack('m').delete(Excon::CR_NL)
-  },
+
+github = Excon.new(
+  'http://api.github.com',
+  :headers  => headers = { 'Authorization' => 'Basic ' << ['' << ENV['GITHUB_USER'] << ':' << ENV['GITHUB_PASS']].pack('m').delete(Excon::CR_NL) },
   :nonblock => false
+)
+
+# add commits in this branch to issue number specified by ARGV[0]
+github.request(
+  :method => :post,
+  :path   => "/repos/#{account}/#{repo}/pulls",
+  :body   => {
+    :base   => 'master',
+    :head   => "#{account}:#{branch}",
+    :issue  => issue
+  }.to_json
+)
+
+# add a comment to the issue to indicate the added commits
+github.request(
+  :method => :post,
+  :path   => "/repos/#{account}/#{repo}/issues/#{issue}/comments",
+  :body   => { :body => 'Commits added, converted to pull request.' }.to_json
 )
