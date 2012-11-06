@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 # encoding: UTF-8
 
+require 'rubygems'
+require 'excon'
+require 'json'
+
 account, repo = `git config --get remote.origin.url`.strip.split(':').last.split('/')
 repo          = repo.split('.').first
 branch        = `git symbolic-ref HEAD`.strip.split('/').last
@@ -9,12 +13,8 @@ issue         = ARGV.first
 # make sure remote branch has latest and greatest from local
 `git push origin #{branch}`
 
-require 'rubygems'
-require 'excon'
-require 'json'
-
 github = Excon.new(
-  'http://api.github.com',
+  'https://api.github.com',
   :headers  => headers = { 'Authorization' => 'Basic ' << ['' << ENV['GITHUB_USER'] << ':' << ENV['GITHUB_PASS']].pack('m').delete(Excon::CR_NL) },
   :nonblock => false
 )
