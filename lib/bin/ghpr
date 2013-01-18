@@ -11,7 +11,7 @@ branch        = `git symbolic-ref HEAD`.strip.split('/').last
 issue         = ARGV.first
 
 # make sure remote branch has latest and greatest from local
-`git push origin #{branch}`
+`git push --set-upstream origin #{branch}`
 
 github = Excon.new(
   'https://api.github.com',
