@@ -36,9 +36,6 @@ set wildmode=longest,full           " file name tab completion
 
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 
-" use ;/: interchangably
-noremap ; :
-
 " use tab to switch to next tab
 noremap <Tab> :tabn<CR>
 " use shift-tab to switch to previous tab
