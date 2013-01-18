@@ -31,4 +31,9 @@ export PS1='\h  \w$(git_branch)  $(git_dirty)  '
 # add ~/.bin and ~/.rbenv/bin
 PATH=$PATH:$HOME/.bin:$HOME/.rbenv/bin
 
+cloud() {
+  eval "$(ion-client shell)"
+  cloud "$@"
+}
+
 eval "$(rbenv init -)"
