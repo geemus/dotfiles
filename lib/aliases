@@ -1,5 +1,6 @@
 alias ..='cd ..'
-alias ...='cd ../../'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias be='bundle exec'
 alias bra='bundle exec rake'
 alias br='bundle exec ruby'
