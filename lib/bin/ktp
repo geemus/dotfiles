@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+begin
+  touchpad = `xinput list | grep TouchPad`
+  id = touchpad.match(%r|id=(\d+)|).captures.first
+  `xinput set-prop #{id} "Device Enabled" 0`
+  puts("touchpad disabled")
+rescue
+  puts("failed to disable touchpad")
+end
