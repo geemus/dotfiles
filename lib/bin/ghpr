@@ -15,7 +15,10 @@ issue         = ARGV.first
 
 github = Excon.new(
   'https://api.github.com',
-  :headers  => headers = { 'Authorization' => 'Basic ' << ['' << ENV['GITHUB_USER'] << ':' << ENV['GITHUB_PASS']].pack('m').delete(Excon::CR_NL) },
+  :headers  => {
+    'Authorization' => 'Basic ' << ['' << ENV['GITHUB_USER'] << ':' << ENV['GITHUB_PASS']].pack('m').delete(Excon::CR_NL),
+    'User-Agent'    => 'ghpr'
+  },
   :nonblock => false
 )
 
