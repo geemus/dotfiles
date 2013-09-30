@@ -16,17 +16,23 @@ shopt -s histverify # edit a recalled history before executing
 # append to history, clear history, load history from file, prompt
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-function git_branch {
- git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
-}
+# see also: https://github.com/sindresorhus/pure/blob/master/pure.zsh
 function git_dirty {
-  if [[ $(git status 2> /dev/null | grep '(use "git') ]]; then
-    echo "☠"
-  else
-    echo "⌘"
+  git rev-parse --is-inside-work-tree &>/dev/null || return
+  git diff --quiet --ignore-submodules HEAD &>/dev/null
+  (($? == 1)) && echo '☠'
+}
+function git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(git_dirty)]/"
+}
+
+function host {
+  if [[ "$SSH_CONNECTION" != '' ]]; then
+    echo '\h  '
   fi
 }
-export PS1='\h  \w$(git_branch)  $(git_dirty)  '
+
+export PS1='$(host)\w$(git_branch) ❯ '
 
 # add ~/.bin and ~/.rbenv/bin
 PATH=$PATH:$HOME/.bin:$HOME/.rbenv/bin
