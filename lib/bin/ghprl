@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+require 'rubygems'
+require 'excon'
+require 'json'
+
+github = Excon.new(
+  'https://api.github.com',
+  :headers  => {
+    'Authorization' => 'Basic ' << ['' << ENV['GITHUB_USER'] << ':' << ENV['GITHUB_PASS']].pack('m').delete(Excon::CR_NL),
+    'User-Agent'    => 'ghpr'
+  },
+  :nonblock => false
+)
+
+# ghprl foo bar 788 +baz -qux
+account = ARGV.shift
+repo    = ARGV.shift
+issue   = ARGV.shift
+labels  = ARGV.map {|label| label.dup} # dup to ensure not frozen
+
+labels_to_add, labels_to_remove = [], []
+
+labels.each do |label|
+  case label.slice!(0)
+  when '+'
+    labels_to_add << label
+  when '-'
+    labels_to_remove << label
+  else
+    raise "Labels must be prefixed with `+` to add or `-` to remove."
+  end
+end
+
+unless labels_to_add.empty?
+  puts "Adding #{labels_to_add.inspect} label(s) to #{account}/#{repo} ##{issue}"
+  response = github.request(
+    :method => :post,
+    :path   => "/repos/#{account}/#{repo}/issues/#{issue}/labels",
+    :body   => labels_to_add.to_json
+  )
+end
+
+unless labels_to_remove.empty?
+  puts "Removing #{labels_to_remove.inspect} label(s) to #{account}/#{repo} ##{issue}"
+  labels_to_remove.each do |label|
+    response = github.request(
+      :method => :delete,
+      :path   => "/repos/#{account}/#{repo}/issues/#{issue}/labels/#{label}"
+    )
+  end
+end
