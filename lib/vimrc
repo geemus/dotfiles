@@ -54,7 +54,7 @@ nmap <silent> <Leader>n :NERDTreeToggle<CR>
 " use pathogen to handle plugins
 let g:ctrlp_ext_vars = [] " fix for broken behavior from recent ctrlp
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 colorscheme solarized
 
 " nice auto-magic tab completion
