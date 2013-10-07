@@ -34,8 +34,8 @@ function host {
 
 export PS1='$(host)\w$(git_branch) ❯ '
 
-# add ~/.bin and ~/.rbenv/bin
-PATH=$PATH:$HOME/.bin:$HOME/.rbenv/bin
+# add ~/.bin and ~/.rbenv/bin and /usr/local/share/npm/bin
+PATH=$PATH:$HOME/.bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin
 
 cloud() {
   eval "$(ion-client shell)"
