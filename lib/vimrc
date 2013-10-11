@@ -35,7 +35,8 @@ set wildmenu                        " command line tab completion
 set wildmode=longest,full           " file name tab completion
 
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
-autocmd BufNew,BufNewFile,BufRead *.md setlocal ft=markdown " use markdown for *.md instead of modula2
+autocmd BufNew,BufNewFile,BufRead *.md setlocal filetype=markdown " use markdown for *.md instead of modula2
+autocmd BufNew,BufNewFile,BufRead *.json,*.jsonp setlocal filetype=json " use json for *.json
 
 " use tab to switch to next tab
 noremap <Tab> :tabn<CR>
@@ -56,6 +57,9 @@ let g:ctrlp_ext_vars = [] " fix for broken behavior from recent ctrlp
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#incubate()
 colorscheme solarized
+
+" disable strange json quote hiding
+let g:vim_json_syntax_conceal = 0
 
 " nice auto-magic tab completion
 function! SuperCleverTab()
