@@ -25,9 +25,10 @@ github = Excon.new(
 puts "Converting issue ##{issue} to pull request."
 # add commits in this branch to issue number specified by ARGV[0]
 github.request(
-  :method => :post,
-  :path   => "/repos/#{account}/#{repo}/pulls",
-  :body   => {
+  :expects  => [201],
+  :method   => :post,
+  :path     => "/repos/#{account}/#{repo}/pulls",
+  :body     => {
     :base   => 'master',
     :head   => "#{account}:#{branch}",
     :issue  => issue
@@ -37,9 +38,10 @@ github.request(
 puts "Adding comment to cause notification."
 # add a comment to the issue to indicate the added commits
 github.request(
-  :method => :post,
-  :path   => "/repos/#{account}/#{repo}/issues/#{issue}/comments",
-  :body   => { :body => 'Commits added, converted to pull request.' }.to_json
+  :expects  => [201],
+  :method   => :post,
+  :path     => "/repos/#{account}/#{repo}/issues/#{issue}/comments",
+  :body     => { :body => 'Commits added, converted to pull request.' }.to_json
 )
 
 puts "https://github.com/#{account}/#{repo}/pull/#{issue}"
