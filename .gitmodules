@@ -13,6 +13,9 @@
 [submodule "lib/vim/bundle/vim-colors-solarized"]
   path = lib/vim/bundle/vim-colors-solarized
   url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "https://github.com/airblade/vim-gitgutter"]
+  path = lib/vim/bundle/vim-gitgutter
+  url = git://github.com/airblade/vim-gitgutter.git
 [submodule "lib/vim/bundle/vim-gitignore"]
 	path = lib/vim/bundle/vim-gitignore
 	url = git://github.com/vitaly/vim-gitignore.git
