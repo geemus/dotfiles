@@ -19,5 +19,6 @@ alias h='heroku'
 alias ic='ion-client'
 alias rth='ion-client run -a wolfpack-raven wolfpack run -c 5 api'
 alias t='todo.sh -d /Users/geemus/.todo.cfg'
-[[ `which pbcopy` = '' ]] && alias pbcopy='xclip -selection clipboard'
+[[ `which pbcopy` = '' ]] && alias pbcopy='xclip -in -selection clipboard'
+[[ `which pbpaste` = '' ]] && alias pbpaste='xclip -out -selection clipboard'
 [[ `which hub` = '' ]] || eval "$(hub alias -s)"
