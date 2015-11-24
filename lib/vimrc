@@ -55,7 +55,7 @@ nmap <silent> <Leader>n :NERDTreeToggle<CR>
 " use pathogen to handle plugins
 let g:ctrlp_ext_vars = [] " fix for broken behavior from recent ctrlp
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 colorscheme solarized
 
 " disable strange json quote hiding

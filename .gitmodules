@@ -4,9 +4,6 @@
 [submodule "lib/vim/bundle/genutils"]
 	path = lib/vim/bundle/genutils
 	url = git://github.com/vim-scripts/genutils.git
-[submodule "lib/vim/bundle/nerdtree"]
-	path = lib/vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "lib/vim/bundle/syntastic"]
 	path = lib/vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
@@ -22,9 +19,6 @@
 [submodule "lib/vim/bundle/vim-pathogen"]
 	path = lib/vim/bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
-[submodule "lib/vim/bundle/vim-slime"]
-	path = lib/vim/bundle/vim-slime
-	url = git://github.com/jpalardy/vim-slime.git
 [submodule "lib/vim/bundle/vim-surround"]
 	path = lib/vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
