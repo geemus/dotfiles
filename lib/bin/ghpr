@@ -5,8 +5,14 @@ require 'rubygems'
 require 'excon'
 require 'json'
 
-account, repo = `git config --get remote.origin.url`.strip.split(':').last.split('/')
-repo          = repo.split('.').first
+remote_origin_url = `git config --get remote.origin.url`
+account, repo = case
+when remote_origin_url.start_with("git@github.com") # SSH git
+  `git config --get remote.origin.url`.strip.split(':').last.split('/')
+when remote_origin_url.start_with("https://github.com") # HTTPS git
+  `git config --get remote.origin.url`.strip.split('/')[-2..-1]
+end
+repo          = repo.split('.').first # strip .git portion
 branch        = `git symbolic-ref HEAD`.strip.split('/').last
 issue         = ARGV.first
 
@@ -22,7 +28,7 @@ github = Excon.new(
   :nonblock => false
 )
 
-puts "Converting issue ##{issue} to pull request."
+puts "Converting issue ##{issue} to PR of #{account}/#{repo}:#{branch}"
 # add commits in this branch to issue number specified by ARGV[0]
 github.request(
   :expects  => [201],
