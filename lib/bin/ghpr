@@ -7,9 +7,9 @@ require 'json'
 
 remote_origin_url = `git config --get remote.origin.url`
 account, repo = case
-when remote_origin_url.start_with("git@github.com") # SSH git
+when remote_origin_url.start_with?("git@github.com") # SSH git
   `git config --get remote.origin.url`.strip.split(':').last.split('/')
-when remote_origin_url.start_with("https://github.com") # HTTPS git
+when remote_origin_url.start_with?("https://github.com") # HTTPS git
   `git config --get remote.origin.url`.strip.split('/')[-2..-1]
 end
 repo          = repo.split('.').first # strip .git portion
