@@ -32,7 +32,18 @@ function host {
   fi
 }
 
+# http://gilesbowkett.blogspot.com/2018/01/quick-terminaliterm2-hack.html
+# originally: https://superuser.com/a/599156
+function tab_title {
+  echo -ne "\033]0;"$*"\007"
+}
+
 export PS1='$(host)\w$(git_branch) ❯ '
+
+if [ $ITERM_SESSION_ID ]; then
+  path_tab_title='echo -ne "\033];${PWD##*/}\007"'
+  export PROMPT_COMMAND="$PROMPT_COMMAND ${path_tab_title};"
+fi
 
 # add ~/.bin and ~/.rbenv/bin and /usr/local/share/npm/bin
 PATH=$PATH:$HOME/.bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin
