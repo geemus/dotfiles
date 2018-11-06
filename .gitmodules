@@ -7,6 +7,9 @@
 [submodule "lib/vim/bundle/syntastic"]
 	path = lib/vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "lib/vim/bundle/nerdtree"]
+	path = lib/vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
 [submodule "lib/vim/bundle/vim-colors-solarized"]
   path = lib/vim/bundle/vim-colors-solarized
   url = git://github.com/altercation/vim-colors-solarized.git
