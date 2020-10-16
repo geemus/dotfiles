@@ -98,6 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source ~/.aliases
 [[ -s $HOME/.environment ]] && source $HOME/.environment
 
 /usr/bin/setxkbmap -option "caps:escape"
