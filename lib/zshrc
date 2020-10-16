@@ -100,6 +100,6 @@ source $ZSH/oh-my-zsh.sh
 
 [[ -s $HOME/.environment ]] && source $HOME/.environment
 
-/usr/bin/setxkbmap -option "caps:swapescape"
+/usr/bin/setxkbmap -option "caps:escape"
 
 eval "$(rbenv init -)"
