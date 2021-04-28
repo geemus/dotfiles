@@ -101,6 +101,8 @@ source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 [[ -s $HOME/.environment ]] && source $HOME/.environment
 
-/usr/bin/setxkbmap -option "caps:escape"
+if type /usr/bin/setxkbmap > /dev/null; then
+  /usr/bin/setxkbmap -option "caps:escape"
+fi
 
 eval "$(rbenv init -)"
