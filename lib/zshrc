@@ -107,4 +107,4 @@ fi
 
 eval "$(rbenv init -)"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv -)"
+[[ -s $HOME/linuxbrew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv -)"
