@@ -106,3 +106,5 @@ if type /usr/bin/setxkbmap > /dev/null; then
 fi
 
 eval "$(rbenv init -)"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv -)"
