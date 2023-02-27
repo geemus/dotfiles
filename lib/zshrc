@@ -105,6 +105,6 @@ if type /usr/bin/setxkbmap > /dev/null; then
   /usr/bin/setxkbmap -option "caps:escape"
 fi
 
-eval "$(rbenv init -)"
-
 [[ -d /home/linuxbrew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv -)"
+
+eval "$(rbenv init -)"
