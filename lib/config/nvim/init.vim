@@ -65,6 +65,11 @@ call plug#begin()
 Plug 'dense-analysis/ale'
 call plug#end()
 
+let g:ale_fixers = {
+\ 'go': ['gofmt', 'goimports']
+\}
+let g:ale_fix_on_save = 1
+
 " Source nvim/init.vm file after saving changes
 " http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
 if has("autocmd")
