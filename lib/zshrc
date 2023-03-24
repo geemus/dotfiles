@@ -118,6 +118,9 @@ if [ -d "$GOPATH/bin" ] ; then
   PATH="$PATH:$GOROOT/bin"
 fi
 
+# setup for fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # setup for nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
