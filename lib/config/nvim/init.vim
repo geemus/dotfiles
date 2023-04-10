@@ -7,7 +7,6 @@ set nocompatible                    " avoid crazy vi backwards compatibility stu
 syntax enable                       " enable syntax highlighting
 set background=light                " set light background
 set backspace=2                     " set backspace
-set cursorline                      " highlight current cursor line
 set expandtab                       " expand tab to spaces in insert mode
 set ignorecase                      " case-insensitive searching
 set isk+=_,$,@,%,#,-                " mark rubyisms as keywords
@@ -18,6 +17,7 @@ set nobackup                        " do not make a backup before overwriting a 
 set noswapfile                      " do not create swap files
 set nowrap                          " do not wrap lines
 set nowritebackup                   " do not make a backup before overwriting a file
+set relativenumber                  " display line numbering relative to cursor
 set shiftwidth=2                    " number of spaces used for each step in indentation
 set showcmd                         " display partial commands in bottom right
 set showmode                        " display the current mode
@@ -80,7 +80,7 @@ nnoremap <silent><leader>s :FZF<CR>
 " lualine configuration
 lua << END
 require('lualine').setup {
-  options = { theme = 'solarized_light' }
+  options = { theme = 'solarized_dark' }
 }
 END
 
