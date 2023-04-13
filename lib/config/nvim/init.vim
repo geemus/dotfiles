@@ -17,7 +17,6 @@ set nobackup                        " do not make a backup before overwriting a 
 set noswapfile                      " do not create swap files
 set nowrap                          " do not wrap lines
 set nowritebackup                   " do not make a backup before overwriting a file
-set relativenumber                  " display line numbering relative to cursor
 set shiftwidth=2                    " number of spaces used for each step in indentation
 set showcmd                         " display partial commands in bottom right
 set showmode                        " display the current mode
