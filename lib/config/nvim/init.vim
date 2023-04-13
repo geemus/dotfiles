@@ -32,6 +32,7 @@ set wildmode=longest,full           " file name tab completion
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 autocmd BufNew,BufNewFile,BufRead *.md setlocal filetype=markdown " use markdown for *.md instead of modula2
 autocmd BufNew,BufNewFile,BufRead *.json,*.jsonp setlocal filetype=json " use json for *.json
+autocmd BufNew,BufNewFile,BufRead *.json.jbuilder setlocal filetype=ruby " use ruby for *.json.jbuilder
 
 " use tab to switch to next tab
 noremap <Tab> :tabn<CR>
