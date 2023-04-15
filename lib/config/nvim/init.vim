@@ -7,22 +7,16 @@ set nocompatible                    " avoid crazy vi backwards compatibility stu
 syntax enable                       " enable syntax highlighting
 set backspace=2                     " set backspace
 set expandtab                       " expand tab to spaces in insert mode
-set ignorecase                      " case-insensitive searching
 set incsearch                       " incrementally highlight during search
 set isk+=_,$,@,%,#,-                " mark rubyisms as keywords
 set laststatus=2                    " always display status line
-let mapleader="\<space>"            " more accessible leader character
-set number                          " show line numbers
 set nobackup                        " do not make a backup before overwriting a file
-set nohlsearch                      " don't highlight matches after search
 set noswapfile                      " do not create swap files
-set nowrap                          " do not wrap lines
 set nowritebackup                   " do not make a backup before overwriting a file
 set shiftwidth=2                    " number of spaces used for each step in indentation
 set showcmd                         " display partial commands in bottom right
 set showmode                        " display the current mode
 set showtabline=2                   " always display tab line
-set smartcase                       " case-sensitive searching when expression contains capital letters
 set smartindent                     " more clever auto-indenting behavior
 set softtabstop=2                   " number of spaces to insert for a tab
 set tabstop=2                       " number of spaces a tab stands for
@@ -39,9 +33,6 @@ autocmd BufNew,BufNewFile,BufRead *.json.jbuilder setlocal filetype=ruby " use r
 noremap <Tab> :tabn<CR>
 " use shift-tab to switch to previous tab
 noremap <S-Tab> :tabp<CR>
-
-" allow the . to execute once for each line of a visual selection
-vnoremap . :normal .<CR>
 
 " jump to last known position after opening file if '" mark is set
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -68,9 +59,11 @@ Plug 'ishan9299/nvim-solarized-lua'
 Plug 'junegunn/fzf'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 colorscheme solarized
+
 " Ale configuration
 let g:ale_fixers = {
 \ 'go': ['gofmt', 'goimports']
@@ -80,15 +73,40 @@ let g:ale_fix_on_save = 1
 " fzf configuration
 nnoremap <silent><leader>s :FZF<CR>
 
-" lualine configuration
-lua << END
+lua << EOF
+-- options
+vim.opt.hlsearch = false  -- don't highlight matches after search 
+vim.opt.ignorecase = true -- case-insensitive searching
+vim.opt.number = true     -- show line numbers
+vim.opt.smartcase = true  -- case-sensitive searching when expression contains capital letters
+vim.opt.wrap = false      -- do not wrap lines
+
+-- leader
+vim.g.mapleader = ' ' -- set space as leader
+
+-- leader: y to replace system clipboard or Y to append to it
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y')
+
+-- remaps
+
+-- execute . once for each line of a visual selection
+vim.keymap.set('v', '.', ':normal .<CR>')
+
+-- use J/K in visual mode to move selection up or down and reindent as needed
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- plugin configuration
+
 require('lualine').setup {
   options = { theme = 'solarized_dark' }
 }
-END
 
-" Source nvim/init.vm file after saving changes
-" http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
-if has("autocmd")
-  autocmd bufwritepost $MYVIMRC source $MYVIMRC
-endif
+require('nvim-treesitter.configs').setup {
+  auto_install = true, -- automatically install parsers for file types
+  highlight = {
+    enable = true -- use treesitter highlighting instead of vim regexes
+  }
+}
+EOF
