@@ -55,6 +55,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 " Default plugin directories for Neovim: stdpath('data').
 Plug 'dense-analysis/ale'
+Plug 'folke/trouble.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
 Plug 'junegunn/fzf'
 Plug 'lewis6991/gitsigns.nvim'
@@ -113,4 +114,11 @@ require('nvim-treesitter.configs').setup {
     enable = true -- use treesitter highlighting instead of vim regexes
   }
 }
+
+require("trouble").setup()
+vim.keymap.set('n', '<leader>tt', '<cmd>TroubleToggle<cr>')
+vim.keymap.set('n', '<leader>tw', '<cmd>TroubleToggle workplace_diagnostics<cr>')
+vim.keymap.set('n', '<leader>td', '<cmd>TroubleToggle document_diagnostics<cr>')
+vim.keymap.set('n', '<leader>tl', '<cmd>TroubleToggle loclist<cr>')
+vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>')
 EOF
