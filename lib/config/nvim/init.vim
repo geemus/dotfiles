@@ -71,9 +71,6 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
-" fzf configuration
-nnoremap <silent><leader>s :FZF<CR>
-
 lua << EOF
 -- options
 vim.opt.hlsearch = false  -- don't highlight matches after search 
@@ -84,6 +81,9 @@ vim.opt.wrap = false      -- do not wrap lines
 
 -- leader
 vim.g.mapleader = ' ' -- set space as leader
+
+-- leader: s to initiate FZF
+vim.keymap.set('n', '<leader>s', ':FZF<CR>')
 
 -- leader: y to replace system clipboard or Y to append to it
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
