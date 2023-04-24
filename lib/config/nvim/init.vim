@@ -57,6 +57,7 @@ call plug#begin()
 Plug 'dense-analysis/ale'
 Plug 'ishan9299/nvim-solarized-lua'
 Plug 'junegunn/fzf'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -99,6 +100,8 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- plugin configuration
+
+require('gitsigns').setup()
 
 require('lualine').setup {
   options = { theme = 'solarized_dark' }
