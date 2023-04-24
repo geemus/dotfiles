@@ -60,6 +60,7 @@ Plug 'junegunn/fzf'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'tpope/vim-surround'
 call plug#end()
 
 colorscheme solarized
