@@ -2,8 +2,8 @@
 :backtrace: false
 :bulk_threshold: 1000
 :sources:
-- https://8b71ffdcc7e91e809fa13b7b7f4e62110f817658df67deb9:@packagecloud.io/heroku/gemgate/
 - https://rubygems.org
 :update_sources: true
 :verbose: true
-gem: --no-document
+:concurrent_downloads: 8
+gem: "--no-document"
