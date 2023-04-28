@@ -1,16 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=/.vim/after
 let &packpath = &runtimepath
 
-filetype plugin indent on           " enable filetype detection for syntax and indent rules
-autocmd BufNew,BufNewFile,BufRead *.md setlocal filetype=markdown " use markdown for *.md instead of modula2
-autocmd BufNew,BufNewFile,BufRead *.json,*.jsonp setlocal filetype=json " use json for *.json
-autocmd BufNew,BufNewFile,BufRead *.json.jbuilder setlocal filetype=ruby " use ruby for *.json.jbuilder
-
-" use tab to switch to next tab
-noremap <Tab> :tabn<CR>
-" use shift-tab to switch to previous tab
-noremap <S-Tab> :tabp<CR>
-
 " jump to last known position after opening file if '" mark is set
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -42,8 +32,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-surround'
 call plug#end()
 
-colorscheme solarized
-
 " Ale configuration
 let g:ale_fixers = {
 \ 'go': ['gofmt', 'goimports']
@@ -51,6 +39,8 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 lua << EOF
+vim.cmd.colorscheme("solarized")
+
 -- options
 vim.opt.backup = false        -- do not make a backup before overwriting a file
 vim.opt.expandtab = true      -- expand tab to spaces in insert mode
@@ -91,6 +81,10 @@ vim.keymap.set('v', '.', ':normal .<CR>')
 -- use J/K in visual mode to move selection up or down and reindent as needed
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- tab for next tab, shift-tab for previous tab
+vim.keymap.set('n', '<Tab>', ":tabn<CR>")
+vim.keymap.set('n', '<S-Tab>', ":tabp<CR>")
 
 -- plugin configuration
 
