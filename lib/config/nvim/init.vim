@@ -1,29 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=/.vim/after
 let &packpath = &runtimepath
 
-set nocompatible                    " avoid crazy vi backwards compatibility stuff
-
-" misc
-syntax enable                       " enable syntax highlighting
-set backspace=2                     " set backspace
-set expandtab                       " expand tab to spaces in insert mode
-set incsearch                       " incrementally highlight during search
-set isk+=_,$,@,%,#,-                " mark rubyisms as keywords
-set laststatus=2                    " always display status line
-set nobackup                        " do not make a backup before overwriting a file
-set noswapfile                      " do not create swap files
-set nowritebackup                   " do not make a backup before overwriting a file
-set shiftwidth=2                    " number of spaces used for each step in indentation
-set showcmd                         " display partial commands in bottom right
-set showmode                        " display the current mode
-set showtabline=2                   " always display tab line
-set smartindent                     " more clever auto-indenting behavior
-set softtabstop=2                   " number of spaces to insert for a tab
-set tabstop=2                       " number of spaces a tab stands for
-set termguicolors                   " 14-bit RGB colors
-set visualbell                      " use visual rather than audible bell
-set wildmode=longest,full           " file name tab completion
-
 filetype plugin indent on           " enable filetype detection for syntax and indent rules
 autocmd BufNew,BufNewFile,BufRead *.md setlocal filetype=markdown " use markdown for *.md instead of modula2
 autocmd BufNew,BufNewFile,BufRead *.json,*.jsonp setlocal filetype=json " use json for *.json
@@ -75,11 +52,26 @@ let g:ale_fix_on_save = 1
 
 lua << EOF
 -- options
-vim.opt.hlsearch = false  -- don't highlight matches after search 
-vim.opt.ignorecase = true -- case-insensitive searching
-vim.opt.number = true     -- show line numbers
-vim.opt.smartcase = true  -- case-sensitive searching when expression contains capital letters
-vim.opt.wrap = false      -- do not wrap lines
+vim.opt.backup = false        -- do not make a backup before overwriting a file
+vim.opt.expandtab = true      -- expand tab to spaces in insert mode
+vim.opt.hlsearch = false      -- don't highlight matches after search
+vim.opt.ignorecase = true     -- case-insensitive searching
+vim.opt.incsearch = true      -- incrementally highlight during search
+vim.opt.laststatus = 2        -- always display status line
+vim.opt.number = true         -- show line numbers
+vim.opt.softtabstop = 2       -- number of spaces to insert for a tab
+vim.opt.shiftwidth = 2        -- number of spaces used for each step in indentation
+vim.opt.showcmd = true        -- display partial commands in bottom right
+vim.opt.showmode = true       -- display the current mode
+vim.opt.showtabline = 2       -- always display tab line
+vim.opt.smartcase = true      -- case-sensitive searching when expression contains capital letters
+vim.opt.smartindent = true    -- more clever auto-indenting behavior
+vim.opt.swapfile = false      -- do not create swap files
+vim.opt.tabstop = 2           -- number of spaces a tab stands for
+vim.opt.termguicolors = true  -- 14-bit RGB colors
+vim.opt.visualbell = true     -- use visual rather than audible bell
+vim.opt.wrap = false          -- do not wrap lines
+vim.opt.writebackup = false   -- do not make a backup before overwriting a file
 
 -- leader
 vim.g.mapleader = ' ' -- set space as leader
