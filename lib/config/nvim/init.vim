@@ -73,6 +73,9 @@ vim.keymap.set('n', '<leader>s', ':FZF<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
 vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y')
 
+-- leader: p to paste from system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
+
 -- remaps
 
 -- execute . once for each line of a visual selection
