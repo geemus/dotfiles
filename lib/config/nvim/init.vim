@@ -105,8 +105,8 @@ vim.keymap.set('n', '<S-Tab>', ":tabp<CR>")
 
 require('gitsigns').setup()
 
-vim.cmd [[highlight IndentBlanklineIndent1 guibg=#073642 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent2 guibg=#002b36 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent1 guibg=#002b36 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guibg=#073642 gui=nocombine]]
 require('indent_blankline').setup {
   char = "",
   char_highlight_list = {
