@@ -91,6 +91,12 @@ vim.keymap.set('v', '.', ':normal .<CR>')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- split nav without ctrl-w prefix for simplicity and speed
+vim.keymap.set({'n', 'v'}, '<C-H>', '<C-W><C-H>')
+vim.keymap.set({'n', 'v'}, '<C-J>', '<C-W><C-J>')
+vim.keymap.set({'n', 'v'}, '<C-K>', '<C-W><C-K>')
+vim.keymap.set({'n', 'v'}, '<C-L>', '<C-W><C-L>')
+
 -- tab for next tab, shift-tab for previous tab
 vim.keymap.set('n', '<Tab>', ":tabn<CR>")
 vim.keymap.set('n', '<S-Tab>', ":tabp<CR>")
