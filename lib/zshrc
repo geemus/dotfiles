@@ -10,7 +10,6 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-source $(brew --prefix spaceship)/spaceship.zsh
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,11 +71,10 @@ source $(brew --prefix spaceship)/spaceship.zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $(brew --prefix)/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source $(brew --prefix)/opt/spaceship/spaceship.zsh
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -132,3 +130,5 @@ eval "$(rbenv init - zsh)"
 
 # put openssl@3 first in path
 export PATH="$(brew --prefix openssl@3.0)/bin:$PATH"
+
+source $ZSH/oh-my-zsh.sh
