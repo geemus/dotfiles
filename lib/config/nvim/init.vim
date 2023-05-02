@@ -26,6 +26,7 @@ Plug 'folke/trouble.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
 Plug 'junegunn/fzf'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -92,6 +93,23 @@ vim.keymap.set('n', '<S-Tab>', ":tabp<CR>")
 -- plugin configuration
 
 require('gitsigns').setup()
+
+vim.cmd [[highlight IndentBlanklineIndent1 guibg=#073642 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guibg=#002b36 gui=nocombine]]
+require('indent_blankline').setup {
+  char = "",
+  char_highlight_list = {
+    "IndentBlanklineIndent1",
+    "IndentBlanklineIndent2",
+  },
+  show_current_context = true,
+  space_char_highlight_list = {
+    "IndentBlanklineIndent1",
+    "IndentBlanklineIndent2",
+  },
+  show_trailing_blankline_indent = false,
+  use_treesitter = true,
+}
 
 require('lualine').setup {
   options = { theme = 'solarized_dark' }
