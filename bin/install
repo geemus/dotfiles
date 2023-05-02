@@ -2,7 +2,7 @@
 
 # cd ~/github/geemus/dotfiles && git submodule update --init --recursive
 
-FILES=('aliases' 'bash_profile' 'bashrc' 'bin' 'config/nvim/init.vim' 'gemrc' 'gitconfig' 'git-completion' 'hub-completion' 'inputrc' 'osx' 'screenrc' 'todo.cfg' 'vale.ini' 'vim' 'vimrc' 'zshrc')
+FILES=('aliases' 'bash_profile' 'bashrc' 'bin' 'config/nvim/init.vim' 'gemrc' 'gitconfig' 'git-completion' 'hub-completion' 'inputrc' 'osx' 'screenrc' 'tmux.conf' 'todo.cfg' 'vale.ini' 'vim' 'vimrc' 'zshrc')
 
 echo "installing dotfiles..."
 
