@@ -77,6 +77,11 @@ vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y')
 -- leader: p to paste from system clipboard
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 
+-- leader: tc for close tab, tm for tab move, tn for new tab
+vim.keymap.set('n', '<leader>tc', ':tabclose<cr>')
+vim.keymap.set('n', '<leader>tm', ':tabmove<cr>')
+vim.keymap.set('n', '<leader>tn', ':tabnew<cr>')
+
 -- remaps
 
 -- execute . once for each line of a visual selection
