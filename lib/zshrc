@@ -71,10 +71,18 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  brew
+  bundler
   fzf
+  gh
   git
+  golang
   nvm
+  rails
+  rake
   rbenv
+  ruby
+  tmux
 )
 
 source $(brew --prefix)/opt/spaceship/spaceship.zsh
