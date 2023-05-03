@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export HOMEBREW_FORCE_BREWED_CURL=1
 [[ -d /home/linuxbrew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv -)"
 export LD_LIBRARY_PATH=$(brew --prefix)/lib
 
