@@ -22,9 +22,9 @@
   enabled = 1
 [push]
   default = simple
-[credential]
-	helper = osxkeychain
 [credential "https://github.com"]
+  helper =
 	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.28.0/bin/gh auth git-credential
 [credential "https://gist.github.com"]
+  helper =
 	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.28.0/bin/gh auth git-credential
