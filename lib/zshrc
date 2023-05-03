@@ -70,7 +70,7 @@ ZSH_THEME=""
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(fzf git nvm rbenv)
 
 source $(brew --prefix)/opt/spaceship/spaceship.zsh
 SPACESHIP_PROMPT_ASYNC=false # see https://github.com/spaceship-prompt/spaceship-prompt/issues/1193
@@ -118,17 +118,6 @@ if [ -d "$GOPATH/bin" ] ; then
   PATH="$PATH:$GOPATH/bin"
   PATH="$PATH:$GOROOT/bin"
 fi
-
-# setup for fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# setup for nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion.sh" ] && \. "$NVM_DIR/bash_completion.sh"
-
-# setup for rbenv
-eval "$(rbenv init - zsh)"
 
 # put openssl@3 first in path
 export PATH="$(brew --prefix openssl@3.0)/bin:$PATH"
