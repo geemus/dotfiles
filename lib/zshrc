@@ -124,6 +124,9 @@ if type /usr/bin/setxkbmap > /dev/null; then
   /usr/bin/setxkbmap -option "caps:escape"
 fi
 
+# setup for fzf, normally `find * -type f` which omits . files
+export FZF_DEFAULT_COMMAND="find -type f"
+
 # setup for go
 export GOPATH=$HOME/go
 export GOROOT=$(brew --prefix go)/libexec
