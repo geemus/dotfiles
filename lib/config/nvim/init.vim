@@ -24,7 +24,8 @@ call plug#begin()
 Plug 'dense-analysis/ale'
 Plug 'folke/trouble.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
@@ -80,7 +81,7 @@ vim.opt.writebackup = false   -- do not make a backup before overwriting a file
 vim.g.mapleader = ' ' -- set space as leader
 
 -- leader: s to initiate FZF
-vim.keymap.set('n', '<leader>s', ':FZF<CR>')
+vim.keymap.set('n', '<leader>s', ':Files<CR>')
 
 -- leader: y to replace system clipboard or Y to append to it
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
