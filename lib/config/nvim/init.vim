@@ -124,6 +124,13 @@ vim.keymap.set('n', '<S-Tab>', ":tabp<CR>")
 
 -- plugin configuration
 
+local cmp = require('cmp')
+cmp.setup({
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({select = true})
+  }
+})
+
 require('gitsigns').setup()
 
 vim.cmd [[highlight IndentBlanklineIndent1 guibg=#002b36 gui=nocombine]]
@@ -144,7 +151,12 @@ require('indent_blankline').setup {
 }
 
 local lsp = require('lsp-zero')
-lsp.preset("recommended")
+lsp.preset({
+  name = 'recommended',
+  manage_nvim_cmp = {
+    set_extra_mappings = true
+  }
+})
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
 end)
