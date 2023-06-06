@@ -85,10 +85,6 @@ vim.g.mapleader = ' ' -- set space as leader
 -- leader: s to initiate FZF
 vim.keymap.set('n', '<leader>s', ':Files<CR>')
 
--- leader: y to replace system clipboard or Y to append to it
-vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
-vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y')
-
 -- leader: p to paste from system clipboard
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 
@@ -96,6 +92,10 @@ vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 vim.keymap.set('n', '<leader>tc', ':tabclose<cr>')
 vim.keymap.set('n', '<leader>tm', ':tabmove<cr>')
 vim.keymap.set('n', '<leader>tn', ':tabnew<cr>')
+
+-- leader: y to replace system clipboard or Y to append to it
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y')
 
 -- remaps
 
