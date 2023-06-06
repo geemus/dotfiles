@@ -106,6 +106,12 @@ vim.keymap.set('v', '.', ':normal .<CR>')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- move search results to center of screen
+vim.keymap.set('n', '*', '*zz') -- next occurrence of current word
+vim.keymap.set('n', '#', '#zz') -- previous occurrence of current word
+vim.keymap.set('n', 'n', 'nzz') -- next searched term
+vim.keymap.set('n', 'N', 'Nzz') -- previous searched term
+
 -- split nav without ctrl-w prefix for simplicity and speed
 vim.keymap.set({'n', 'v'}, '<C-H>', '<C-W><C-H>')
 vim.keymap.set({'n', 'v'}, '<C-J>', '<C-W><C-J>')
