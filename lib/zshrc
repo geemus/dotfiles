@@ -85,8 +85,8 @@ plugins=(
   tmux
 )
 
-source $(brew --prefix)/opt/spaceship/spaceship.zsh
-SPACESHIP_PROMPT_ASYNC=false # see https://github.com/spaceship-prompt/spaceship-prompt/issues/1193
+autoload -U promptinit; promptinit
+prompt pure
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
