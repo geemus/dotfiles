@@ -23,6 +23,6 @@
 [push]
   default = simple
 [credential "https://github.com"]
-	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.30.0/bin/gh auth git-credential
+  helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.30.0/bin/gh auth git-credential
+  helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
