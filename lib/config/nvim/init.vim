@@ -48,7 +48,9 @@ call plug#end()
 
 " Ale configuration
 let g:ale_fixers = {
-\ 'go': ['gofmt', 'goimports']
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'go': ['gofmt', 'goimports'],
+\ 'terraform': ['terraform']
 \}
 let g:ale_fix_on_save = 1
 
