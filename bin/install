@@ -2,15 +2,20 @@
 
 # cd ~/github/geemus/dotfiles && git submodule update --init --recursive
 
-FILES=('aliases' 'bash_profile' 'bashrc' 'bin' 'Brewfile' 'config/nvim/init.vim' 'gemrc' 'gitconfig' 'git-completion' 'hub-completion' 'inputrc' 'osx' 'screenrc' 'tmate.conf' 'tmux.conf' 'todo.cfg' 'vale.ini' 'vim' 'vimrc' 'zshrc')
-
+DOTFILES=('aliases' 'bash_profile' 'bashrc' 'bin' 'config/nvim/init.vim' 'gemrc' 'gitconfig' 'git-completion' 'hub-completion' 'inputrc' 'osx' 'screenrc' 'tmate.conf' 'tmux.conf' 'todo.cfg' 'vale.ini' 'vim' 'vimrc' 'zshrc')
 echo "installing dotfiles..."
-
-for FILE in ${FILES[@]}
+for DOTFILE in "${DOTFILES[@]}"
 do
-  echo "  ${FILE}"
-  rm ~/.${FILE}
-  ln -s ~/github/geemus/dotfiles/lib/${FILE} ~/.${FILE}
+  echo "  ${DOTFILE}"
+  rm "${HOME}/.${DOTFILE}"
+  ln -s "${HOME}/github/geemus/dotfiles/lib/${DOTFILE}" "${HOME}/.${DOTFILE}"
 done
 
-source ~/.bash_profile
+FILES=('Brewfile')
+echo "installing files..."
+for FILE in "${FILES[@]}"
+do
+  echo "  ${FILE}"
+  rm "${HOME}/${FILE}"
+  ln -s "${HOME}/github/geemus/dotfiles/lib/${FILE}" "${HOME}/${FILE}"
+done
