@@ -71,16 +71,15 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  asdf
   brew
   bundler
   fzf
   gh
   git
   golang
-  nvm
   rails
   rake
-  rbenv
   ruby
   tmux
 )
@@ -128,12 +127,7 @@ fi
 export FZF_DEFAULT_COMMAND="find -type f"
 
 # setup for go
-export GOPATH=$HOME/go
-export GOROOT=$(brew --prefix go)/libexec
-if [ -d "$GOPATH/bin" ] ; then
-  PATH="$PATH:$GOPATH/bin"
-  PATH="$PATH:$GOROOT/bin"
-fi
+. ~/.asdf/plugins/golang/set-env.zsh
 
 # put openssl@3 first in path
 export PATH="$(brew --prefix openssl@3.0)/bin:$PATH"
