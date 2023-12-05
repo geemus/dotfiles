@@ -49,6 +49,7 @@ call plug#end()
 " Ale configuration
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'eruby': ['erb-formatter'],
 \ 'go': ['gofmt', 'goimports'],
 \ 'terraform': ['terraform']
 \}
