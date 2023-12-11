@@ -87,9 +87,6 @@ plugins=(
 autoload -U promptinit; promptinit
 prompt pure
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -129,7 +126,11 @@ export FZF_DEFAULT_COMMAND="find -type f"
 # setup for go
 . ~/.asdf/plugins/golang/set-env.zsh
 
-# put openssl@3 first in path
-export PATH="$(brew --prefix openssl@3.0)/bin:$PATH"
+# add cargo to path
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# add brew installed plugins
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
