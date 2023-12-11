@@ -138,23 +138,7 @@ cmp.setup({
 })
 
 require('gitsigns').setup()
-
-vim.cmd [[highlight IndentBlanklineIndent1 guibg=#002b36 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent2 guibg=#073642 gui=nocombine]]
-require('indent_blankline').setup {
-  char = "",
-  char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
-  },
-  show_current_context = true,
-  space_char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
-  },
-  show_trailing_blankline_indent = false,
-  use_treesitter = true,
-}
+require('ibl').setup()
 
 local lsp = require('lsp-zero')
 lsp.preset({
