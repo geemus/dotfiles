@@ -46,6 +46,12 @@ Plug 'L3MON4D3/LuaSnip'     " Required
 Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 call plug#end()
 
+" filetype configuration
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.mdx set filetype=markdown
+augroup END
+
 " Ale configuration
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
