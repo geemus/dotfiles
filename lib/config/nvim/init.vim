@@ -46,6 +46,7 @@ call plug#end()
 " filetype configuration
 augroup FiletypeGroup
     autocmd!
+    au BufNewFile,BufRead *.jbuilder set filetype=ruby
     au BufNewFile,BufRead *.mdx set filetype=markdown
 augroup END
 
