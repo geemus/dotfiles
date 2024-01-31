@@ -1,6 +1,3 @@
-set runtimepath^=~/.vim runtimepath+=/.vim/after
-let &packpath = &runtimepath
-
 " jump to last known position after opening file if '" mark is set
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
