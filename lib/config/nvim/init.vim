@@ -96,8 +96,8 @@ vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
 -- leader
 vim.g.mapleader = ' ' -- set space as leader
 
--- leader: s to initiate FZF
-vim.keymap.set('n', '<leader>s', ':Files<CR>')
+-- leader: t to initiate FZF
+vim.keymap.set('n', '<leader>t', ':Files<CR>')
 
 -- leader: system clipboard commands
 vim.keymap.set({'n', 'v'}, '<leader>d', '"+d')
@@ -105,9 +105,9 @@ vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
 
 -- leader: tc for close tab, tm for tab move, tn for new tab
-vim.keymap.set('n', '<leader>tc', ':tabclose<cr>')
-vim.keymap.set('n', '<leader>tm', ':tabmove<cr>')
-vim.keymap.set('n', '<leader>tn', ':tabnew<cr>')
+vim.keymap.set('n', '<leader><leader>tc', ':tabclose<cr>')
+vim.keymap.set('n', '<leader><leader>tm', ':tabmove<cr>')
+vim.keymap.set('n', '<leader><leader>tn', ':tabnew<cr>')
 
 -- remaps
 
@@ -182,9 +182,9 @@ require('nvim-treesitter.configs').setup {
 }
 
 require("trouble").setup()
-vim.keymap.set('n', '<leader>tt', '<cmd>TroubleToggle<cr>')
-vim.keymap.set('n', '<leader>tw', '<cmd>TroubleToggle workspace_diagnostics<cr>')
-vim.keymap.set('n', '<leader>td', '<cmd>TroubleToggle document_diagnostics<cr>')
-vim.keymap.set('n', '<leader>tl', '<cmd>TroubleToggle loclist<cr>')
-vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>')
+vim.keymap.set('n', '<leader><leader>tt', '<cmd>TroubleToggle<cr>')
+vim.keymap.set('n', '<leader><leader>tw', '<cmd>TroubleToggle workspace_diagnostics<cr>')
+vim.keymap.set('n', '<leader><leader>td', '<cmd>TroubleToggle document_diagnostics<cr>')
+vim.keymap.set('n', '<leader><leader>tl', '<cmd>TroubleToggle loclist<cr>')
+vim.keymap.set('n', '<leader><leader>tq', '<cmd>TroubleToggle quickfix<cr>')
 EOF
