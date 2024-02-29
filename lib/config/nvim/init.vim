@@ -69,6 +69,7 @@ vim.opt.hlsearch = false      -- don't highlight matches after search
 vim.opt.ignorecase = true     -- case-insensitive searching
 vim.opt.incsearch = true      -- incrementally highlight during search
 vim.opt.laststatus = 2        -- always display status line
+vim.opt.mouse = ''            -- disable mouse
 vim.opt.number = true         -- show line numbers
 vim.opt.softtabstop = 2       -- number of spaces to insert for a tab
 vim.opt.shiftwidth = 2        -- number of spaces used for each step in indentation
@@ -85,6 +86,12 @@ vim.opt.termguicolors = true  -- 14-bit RGB colors
 vim.opt.visualbell = true     -- use visual rather than audible bell
 vim.opt.wrap = false          -- do not wrap lines
 vim.opt.writebackup = false   -- do not make a backup before overwriting a file
+
+-- disable arrow keys (and by extension touchpad in terminal emulators)
+vim.keymap.set("", "<up>", "<nop>", { noremap = true })
+vim.keymap.set("", "<down>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<up>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
 
 -- leader
 vim.g.mapleader = ' ' -- set space as leader
