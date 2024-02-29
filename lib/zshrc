@@ -129,8 +129,15 @@ export FZF_DEFAULT_COMMAND="find -type f"
 # add cargo to path
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# add brew installed plugins
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# add gobin to path
+asdf_update_golang_bin() {
+  local go_path
+  go_path="$(asdf which go)"
+  if [[ -n "${go_path}" ]]; then
+    export PATH="$PATH:${go_path}"
+  fi
+}
+autoload -U add-zsh-hook
+add-zsh-hook precmd asdf_update_golang_bin
 
 source $ZSH/oh-my-zsh.sh
