@@ -141,3 +141,7 @@ autoload -U add-zsh-hook
 add-zsh-hook precmd asdf_update_golang_bin
 
 source $ZSH/oh-my-zsh.sh
+
+. $(brew --prefix asdf)/libexec/asdf.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
