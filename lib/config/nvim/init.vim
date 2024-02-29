@@ -1,9 +1,6 @@
 " jump to last known position after opening file if '" mark is set
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" disable strange json quote hiding
-let g:vim_json_syntax_conceal = 0
-
 " Install vim-plug if not found
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
