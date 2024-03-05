@@ -147,7 +147,7 @@ cmp.setup({
     {name = 'nvim_lua'},
   },
   mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({select = true})
+    ['<CR>'] = cmp.mapping.confirm({select = true}),
     ['<Tab>'] = cmp_action.luasnip_supertab(),
     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
   }),
