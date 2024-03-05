@@ -138,6 +138,7 @@ vim.keymap.set('n', '<S-Tab>', ":tabp<CR>")
 -- plugin configuration
 
 local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
 local cmp_format = require('lsp-zero').cmp_format({details = true})
 
 cmp.setup({
@@ -145,9 +146,11 @@ cmp.setup({
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<CR>'] = cmp.mapping.confirm({select = true})
-  },
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+  }),
   formatting = cmp_format, -- show source name
 })
 
