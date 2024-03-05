@@ -36,7 +36,9 @@ Plug 'williamboman/mason-lspconfig.nvim'               " Optional
 Plug 'L3MON4D3/LuaSnip', {'do': 'make install_jsregexp'} " Required
 Plug 'hrsh7th/nvim-cmp'                                  " Required
 Plug 'hrsh7th/cmp-nvim-lsp'                              " Required
+Plug 'hrsh7th/cmp-buffer'                                " Optional
 Plug 'hrsh7th/cmp-nvim-lua'                              " Optional
+Plug 'saadparwaiz1/cmp_luasnip'                          " Optional
 
 Plug 'VonHeikemen/lsp-zero.nvim'
 call plug#end()
@@ -141,10 +143,14 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local cmp_format = require('lsp-zero').cmp_format({details = true})
 
+require('luasnip.loaders.from_lua').lazy_load({paths = "~/.config/nvim/LuaSnip/"})
+
 cmp.setup({
   sources = {
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
+    {name = 'luasnip'},
+    {name = 'buffer'},
   },
   mapping = cmp.mapping.preset.insert({
     ['<CR>'] = cmp.mapping.confirm({select = true}),
