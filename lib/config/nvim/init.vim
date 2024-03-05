@@ -33,11 +33,12 @@ Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'} " Optional
 Plug 'williamboman/mason-lspconfig.nvim'               " Optional
 
 " lsp-zero: Autocompletion
-Plug 'hrsh7th/nvim-cmp'     " Required
-Plug 'hrsh7th/cmp-nvim-lsp' " Required
-Plug 'L3MON4D3/LuaSnip'     " Required
+Plug 'L3MON4D3/LuaSnip', {'do': 'make install_jsregexp'} " Required
+Plug 'hrsh7th/nvim-cmp'                                  " Required
+Plug 'hrsh7th/cmp-nvim-lsp'                              " Required
+Plug 'hrsh7th/cmp-nvim-lua'                              " Optional
 
-Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
+Plug 'VonHeikemen/lsp-zero.nvim'
 call plug#end()
 
 " filetype configuration
@@ -137,10 +138,17 @@ vim.keymap.set('n', '<S-Tab>', ":tabp<CR>")
 -- plugin configuration
 
 local cmp = require('cmp')
+local cmp_format = require('lsp-zero').cmp_format({details = true})
+
 cmp.setup({
+  sources = {
+    {name = 'nvim_lsp'},
+    {name = 'nvim_lua'},
+  },
   mapping = {
     ['<CR>'] = cmp.mapping.confirm({select = true})
-  }
+  },
+  formatting = cmp_format, -- show source name
 })
 
 require('gitsigns').setup()
