@@ -158,7 +158,7 @@ cmp.setup({
     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
   }),
   formatting = cmp_format, -- show source name
-  preselect = 'item', -- automatically select first item
+  preselect = cmp.PreselectMode.None,
   completion = {
     completeopt = 'menu,menuone,noinsert' -- automatically select first item
   },
