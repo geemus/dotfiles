@@ -25,6 +25,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'stevearc/oil.nvim'
 Plug 'tpope/vim-surround'
 
 " lsp-zero: LSP Support
@@ -201,6 +202,9 @@ require('nvim-treesitter.configs').setup {
     enable = true -- use treesitter highlighting instead of vim regexes
   }
 }
+
+require('oil').setup()
+vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = "Open parent directory with oil.nvim" })
 
 require("trouble").setup()
 vim.keymap.set('n', '<leader><leader>tt', '<cmd>TroubleToggle<cr>')
