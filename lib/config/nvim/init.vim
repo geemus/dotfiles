@@ -203,6 +203,7 @@ require('nvim-treesitter.configs').setup {
   }
 }
 
+-- oil.nvim adds buffer-based netrw file browsing/editing
 require('oil').setup()
 vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = "Open parent directory with oil.nvim" })
 
