@@ -1,4 +1,60 @@
 return {
+  -- anchor
+  s({ trig = "acmd" },
+    fmta(
+      [[
+        var Cmd<> = cli.NewCmd[<>](Cmd<>, "<>", func(cmd *cobra.Command) {})
+
+        type <> struct {
+          Anc *api.Session
+        }
+
+        func (c <>) UI() cli.UI {
+          return cli.UI{
+            RunTUI: c.run,
+          }
+        }
+
+        func (c *<>) run(ctx context.Context, drv *ui.Driver) error {
+          var err error
+          clientCmd := &auth.Client{
+            Anc: c.Anc,
+          }
+          c.Anc, err = clientCmd.Perform(ctx, drv)
+          if err != nil {
+            return err
+          }
+
+          // TODO: drv.Activate(ctx, &models.<>Header{})
+          // TODO: drv.Activate(ctx, &models.<>Hint{})
+
+          err = c.Perform(ctx, drv)
+          if err != nil {
+            return err
+          }
+
+          return nil
+        }
+
+        func (c *<>) Perform(ctx context.Context, drv *ui.Driver) error {
+          return nil
+        }
+      ]],
+      {
+        i(1, "command"),
+        rep(1),
+        i(2, "parent"),
+        i(3, "name"),
+        rep(1),
+        rep(1),
+        rep(1),
+        rep(1),
+        rep(1),
+        rep(1)
+      }
+    )
+  ),
+
   -- bubbletea
   s({ trig = "tclient" },
     fmta(
