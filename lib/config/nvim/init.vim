@@ -15,6 +15,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
 " Default plugin directories for Neovim: stdpath('data').
+Plug 'davidgranstrom/scnvim'
 Plug 'dense-analysis/ale'
 Plug 'folke/trouble.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
@@ -40,6 +41,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'                              " Required
 Plug 'hrsh7th/cmp-buffer'                                " Optional
 Plug 'hrsh7th/cmp-nvim-lua'                              " Optional
 Plug 'saadparwaiz1/cmp_luasnip'                          " Optional
+Plug 'quangnguyen30192/cmp-nvim-tags'                    " Optional
 
 Plug 'VonHeikemen/lsp-zero.nvim'
 call plug#end()
@@ -144,6 +146,7 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local cmp_format = require('lsp-zero').cmp_format({details = true})
 
+require("luasnip").add_snippets("supercollider", require("scnvim/utils").get_snippets())
 require('luasnip.loaders.from_lua').lazy_load({paths = "~/.config/nvim/LuaSnip/"})
 
 cmp.setup({
@@ -206,6 +209,39 @@ require('nvim-treesitter.configs').setup {
 -- oil.nvim adds buffer-based netrw file browsing/editing
 require('oil').setup()
 vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = "Open parent directory with oil.nvim" })
+
+local scnvim = require 'scnvim'
+local map = scnvim.map
+local map_expr = scnvim.map_expr
+scnvim.setup({
+  keymaps = {
+    ['<M-e>'] = map('editor.send_line', {'i', 'n'}),
+    ['<C-e>'] = {
+      map('editor.send_block', {'i', 'n'}),
+      map('editor.send_selection', 'x'),
+    },
+    ['<CR>'] = map('postwin.toggle'),
+    ['<M-CR>'] = map('postwin.toggle', 'i'),
+    ['<M-L>'] = map('postwin.clear', {'n', 'i'}),
+    ['<C-k>'] = map('signature.show', {'n', 'i'}),
+    ['<F12>'] = map('sclang.hard_stop', {'n', 'x', 'i'}),
+    ['<leader>st'] = map('sclang.start'),
+    ['<leader>sk'] = map('sclang.recompile'),
+    ['<F1>'] = map_expr('s.boot'),
+    ['<F2>'] = map_expr('s.meter'),
+  },
+  editor = {
+    highlight = {
+      color = 'IncSearch',
+    },
+  },
+  postwin = {
+    float = {
+      enabled = true,
+    },
+  },
+})
+vim.g.scnvim_snippet_format = "luasnip"
 
 require("trouble").setup()
 vim.keymap.set('n', '<leader><leader>tt', '<cmd>TroubleToggle<cr>')
