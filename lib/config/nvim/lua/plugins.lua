@@ -37,7 +37,14 @@ return {
   { 'davidgranstrom/scnvim', lazy = true },
   { 'folke/trouble.nvim' },
   { 'tpope/vim-surround' },
-
+  { "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {},
+  },
 }
 
 -- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
