@@ -19,8 +19,7 @@ return {
       }
     end,
   },
-  { 'junegunn/fzf' },
-  { 'junegunn/fzf.vim' },
+  { 'ibhagwan/fzf-lua' },
   { 'lewis6991/gitsigns.nvim' },
   { 'lukas-reineke/indent-blankline.nvim' },
   { 'nvim-lualine/lualine.nvim' },
