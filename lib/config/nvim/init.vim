@@ -1,51 +1,6 @@
 " jump to last known position after opening file if '" mark is set
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" Install vim-plug if not found
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-call plug#begin()
-" Default plugin directories for Neovim: stdpath('data').
-Plug 'davidgranstrom/scnvim'
-Plug 'dense-analysis/ale'
-Plug 'folke/trouble.nvim'
-Plug 'ishan9299/nvim-solarized-lua'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'stevearc/oil.nvim'
-Plug 'tpope/vim-surround'
-
-" lsp-zero: LSP Support
-Plug 'neovim/nvim-lspconfig'                           " Required
-Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'} " Optional
-Plug 'williamboman/mason-lspconfig.nvim'               " Optional
-
-" lsp-zero: Autocompletion
-Plug 'L3MON4D3/LuaSnip', {'do': 'make install_jsregexp'} " Required
-Plug 'hrsh7th/nvim-cmp'                                  " Required
-Plug 'hrsh7th/cmp-nvim-lsp'                              " Required
-Plug 'hrsh7th/cmp-buffer'                                " Optional
-Plug 'hrsh7th/cmp-nvim-lua'                              " Optional
-Plug 'saadparwaiz1/cmp_luasnip'                          " Optional
-Plug 'quangnguyen30192/cmp-nvim-tags'                    " Optional
-
-Plug 'VonHeikemen/lsp-zero.nvim'
-call plug#end()
-
 " filetype configuration
 augroup FiletypeGroup
     autocmd!
@@ -54,19 +9,29 @@ augroup FiletypeGroup
     au BufNewFile,BufRead *.mdx set filetype=markdown
 augroup END
 
-" Ale configuration
-let g:ale_fixers = {
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'eruby': ['erb-formatter'],
-\ 'go': ['gofmt', 'goimports'],
-\ 'terraform': ['terraform']
-\}
-let g:ale_fix_on_save = 1
-let g:ale_linter_aliases = {
-\  'eruby': ['eruby', 'text']
-\}
-
 lua << EOF
+vim.loader.enable() -- compile lua to bytecode and cache
+
+-- leader (before lazy.nvim to ensure mappings are correct)
+vim.g.mapleader = ' ' -- set space as leader
+
+-- bootstrap lazy.nvim if/when needed
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup('plugins')
+
+-- set colorscheme
 vim.cmd.colorscheme("solarized")
 
 -- options
@@ -99,9 +64,6 @@ vim.keymap.set("", "<up>", "<nop>", { noremap = true })
 vim.keymap.set("", "<down>", "<nop>", { noremap = true })
 vim.keymap.set("i", "<up>", "<nop>", { noremap = true })
 vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
-
--- leader
-vim.g.mapleader = ' ' -- set space as leader
 
 -- leader: t to initiate FZF
 vim.keymap.set('n', '<leader>t', ':Files<CR>')
