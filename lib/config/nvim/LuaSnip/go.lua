@@ -280,11 +280,21 @@ return {
       {}
     )
   ),
+  s({ trig = "tiec" },
+    fmta(
+      [[
+        if len(errc) >> 0 {
+          t.Fatal(<<-errc)
+        }
+      ]],
+      {}
+    )
+  ),
   s({ trig = "tiwg" },
     fmta(
       [[
         if want, got := <>, <>; want != got {
-          t.Errorf("want:\n\n%s\n\ngot:\n\n%s\n\n", want, got)
+          t.Errorf("\n\nWant:\n\n%s\n\nGot:\n\n%s\n\n", want, got)
         }
       ]],
       {
