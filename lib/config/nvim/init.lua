@@ -1,4 +1,3 @@
-lua << EOF
 vim.loader.enable() -- compile lua to bytecode and cache
 
 -- leader (before lazy.nvim to ensure mappings are correct)
@@ -208,4 +207,3 @@ require("trouble").setup()
 vim.keymap.set('n', '<leader><leader>tt', '<cmd>Trouble diagnostics toggle<cr>')
 vim.keymap.set('n', '<leader><leader>tl', '<cmd>Trouble loclist toggle<cr>')
 vim.keymap.set('n', '<leader><leader>tq', '<cmd>Trouble qflist toggle<cr>')
-EOF
