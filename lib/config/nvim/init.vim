@@ -1,14 +1,3 @@
-" jump to last known position after opening file if '" mark is set
-:au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" filetype configuration
-augroup FiletypeGroup
-    autocmd!
-    au BufNewFile,BufRead *.jbuilder set filetype=ruby
-    au BufNewFile,BufRead *.golden set filetype=markdown
-    au BufNewFile,BufRead *.mdx set filetype=markdown
-augroup END
-
 lua << EOF
 vim.loader.enable() -- compile lua to bytecode and cache
 
@@ -33,6 +22,15 @@ require('lazy').setup('plugins')
 
 -- set colorscheme
 vim.cmd.colorscheme("solarized")
+
+-- add extra filetype mapping
+vim.filetype.add({
+  extension = {
+    golden = "markdown",
+    jbuilder = "ruby",
+    mdx = "markdown",
+  },
+})
 
 -- options
 vim.opt.backup = false        -- do not make a backup before overwriting a file
