@@ -207,9 +207,7 @@ scnvim.setup({
 vim.g.scnvim_snippet_format = "luasnip"
 
 require("trouble").setup()
-vim.keymap.set('n', '<leader><leader>tt', '<cmd>TroubleToggle<cr>')
-vim.keymap.set('n', '<leader><leader>tw', '<cmd>TroubleToggle workspace_diagnostics<cr>')
-vim.keymap.set('n', '<leader><leader>td', '<cmd>TroubleToggle document_diagnostics<cr>')
-vim.keymap.set('n', '<leader><leader>tl', '<cmd>TroubleToggle loclist<cr>')
-vim.keymap.set('n', '<leader><leader>tq', '<cmd>TroubleToggle quickfix<cr>')
+vim.keymap.set('n', '<leader><leader>tt', '<cmd>Trouble diagnostics toggle<cr>')
+vim.keymap.set('n', '<leader><leader>tl', '<cmd>Trouble loclist toggle<cr>')
+vim.keymap.set('n', '<leader><leader>tq', '<cmd>Trouble qflist toggle<cr>')
 EOF
