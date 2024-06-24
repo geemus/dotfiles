@@ -27,17 +27,21 @@ return {
     build = 'make install_jsregexp',
     event = 'VeryLazy',
   },
-  { 'williamboman/mason.nvim',
-    event = 'VeryLazy',
-  },
-  { 'williamboman/mason-lspconfig.nvim',
-    event = 'VeryLazy',
-  },
   { 'VonHeikemen/lsp-zero.nvim',
     event = 'VeryLazy',
   },
   { 'neovim/nvim-lspconfig',
-    event = 'VeryLazy',
+    dependencies = {
+      { 'williamboman/mason.nvim',
+        config = function()
+          require("mason").setup()
+          require("mason-lspconfig").setup()
+        end,
+        dependencies = {
+          { 'williamboman/mason-lspconfig.nvim' },
+        },
+      },
+    },
   },
   { 'hrsh7th/nvim-cmp',
     dependencies = {
