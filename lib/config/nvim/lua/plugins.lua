@@ -42,6 +42,7 @@ return {
         },
       },
     },
+    event = 'VeryLazy',
   },
   { 'hrsh7th/nvim-cmp',
     dependencies = {
