@@ -4,15 +4,11 @@
   br = branch
   co = checkout
   df = diff
-[apply]
-  whitespace = fix
 [color]
   diff = auto
   status = auto
   branch = auto
   interactive = auto
-[core]
-  whitespace = trailing-space,space-before-tab
 [github]
   user = geemus
 [user]
