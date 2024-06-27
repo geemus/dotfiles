@@ -178,7 +178,7 @@ return {
       })
       vim.g.scnvim_snippet_format = "luasnip"
     end,
-    ft = 'scd',
+    ft = 'supercollider',
   },
   { 'folke/trouble.nvim',
     config = function()
