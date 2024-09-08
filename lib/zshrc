@@ -136,6 +136,9 @@ asdf_update_golang_bin() {
 autoload -U add-zsh-hook
 add-zsh-hook precmd asdf_update_golang_bin
 
+# For pg and sequel_pg gem installs that uses pg_config to find the include dirs
+export PATH="$PATH:${HOMEBREW_PREFIX}/opt/postgresql@15/bin"
+
 source $ZSH/oh-my-zsh.sh
 
 . $(brew --prefix asdf)/libexec/asdf.sh
