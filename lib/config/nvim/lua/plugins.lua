@@ -187,7 +187,7 @@ return {
         },
         postwin = {
           float = {
-            enabled = true,
+            enabled = false,
           },
         },
       })

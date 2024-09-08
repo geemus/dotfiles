@@ -1,4 +1,5 @@
 local scnvim = require 'scnvim'
+local sclang = require 'scnvim.sclang'
 
 scnvim.start()
 
