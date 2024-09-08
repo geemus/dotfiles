@@ -76,9 +76,23 @@ return {
         config = function()
           require("mason").setup()
           require("mason-lspconfig").setup()
+          require("mason-tool-installer").setup({
+            ensure_installed = {
+              "bash-language-server", -- bash: language server
+              "dockerfile-language-server", -- dockerfile: language server
+              "gopls", -- go: language server
+              "luacheck", -- lua: lint and static analysis
+              "lua-language-server", -- lua: language server
+              "solargraph", -- ruby: language server
+              "tailwindcss-language-server", -- tailwind css: language server
+              "vacuum", -- openapi: lint
+              "vale", -- prose: lint
+            },
+          })
         end,
         dependencies = {
           { 'williamboman/mason-lspconfig.nvim' },
+          { "WhoIsSethDaniel/mason-tool-installer.nvim" },
         },
       },
     },
