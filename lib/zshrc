@@ -141,3 +141,4 @@ source $ZSH/oh-my-zsh.sh
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
