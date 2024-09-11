@@ -10,10 +10,13 @@ return {
         terraform = { 'terraform' }
       }
       g.ale_linter_aliases = {
-        eruby = { 'eruby', 'text' }
+        eruby = { 'eruby', 'text' } -- run vale on eruby
       }
     end,
-    event = 'VeryLazy',
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
   },
   { 'ibhagwan/fzf-lua',
     event = 'VeryLazy',
@@ -80,10 +83,15 @@ return {
             ensure_installed = {
               "bash-language-server", -- bash: language server
               "dockerfile-language-server", -- dockerfile: language server
+              "golangci-lint", -- go: lint
               "gopls", -- go: language server
+              "hadolint", -- dockerfile: lint
               "luacheck", -- lua: lint and static analysis
               "lua-language-server", -- lua: language server
+              "rubocop", -- ruby: lint
+              "shellcheck", -- sh: lint
               "solargraph", -- ruby: language server
+              "spectral", -- openapi: lint lsp
               "tailwindcss-language-server", -- tailwind css: language server
               "vacuum", -- openapi: lint
               "vale", -- prose: lint
