@@ -62,8 +62,10 @@ vim.keymap.set("", "<down>", "<nop>", { noremap = true })
 vim.keymap.set("i", "<up>", "<nop>", { noremap = true })
 vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
 
--- leader: t to initiate FZF
+-- leader: FZF commands
 vim.keymap.set('n', '<leader>t', ':FzfLua files<CR>')
+vim.keymap.set('n', '<leader>f', ':FzfLua grep_curbuf<CR>')
+vim.keymap.set('n', '<leader><leader>f', ':FzfLua grep_project<CR>')
 
 -- leader: system clipboard commands
 vim.keymap.set({'n', 'v'}, '<leader>d', '"+d')
