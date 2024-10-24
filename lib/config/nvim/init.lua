@@ -29,6 +29,10 @@ vim.filetype.add({
     jbuilder = "ruby",
     mdx = "markdown",
   },
+  pattern = {
+    ['openapi.ya?ml'] = 'yaml.openapi',
+    ['openapi.json'] = 'json.openapi',
+  }
 })
 
 -- options
