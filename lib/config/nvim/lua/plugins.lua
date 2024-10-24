@@ -58,53 +58,59 @@ return {
     event = 'VeryLazy',
   },
   { 'VonHeikemen/lsp-zero.nvim',
-    config = function()
-      local lsp = require('lsp-zero')
-      lsp.preset({
-        name = 'recommended',
-        manage_nvim_cmp = {
-          set_extra_mappings = true
-        }
-      })
-      lsp.on_attach(function(client, bufnr)
-        lsp.default_keymaps({buffer = bufnr})
-      end)
-      lsp.setup()
-    end,
-    event = 'VeryLazy',
+    config = false,
+    lazy = true,
   },
   { 'neovim/nvim-lspconfig',
+    event = {'BufReadPre', 'BufNewFile'},
     dependencies = {
-      { 'williamboman/mason.nvim',
-        config = function()
-          require("mason").setup()
-          require("mason-lspconfig").setup()
-          require("mason-tool-installer").setup({
-            ensure_installed = {
-              "bash-language-server", -- bash: language server
-              "dockerfile-language-server", -- dockerfile: language server
-              "golangci-lint", -- go: lint
-              "gopls", -- go: language server
-              "hadolint", -- dockerfile: lint
-              "luacheck", -- lua: lint and static analysis
-              "lua-language-server", -- lua: language server
-              "rubocop", -- ruby: lint
-              "shellcheck", -- sh: lint
-              "solargraph", -- ruby: language server
-              "spectral", -- openapi: lint lsp
-              "tailwindcss-language-server", -- tailwind css: language server
-              "vacuum", -- openapi: lint
-              "vale", -- prose: lint
-            },
-          })
-        end,
-        dependencies = {
-          { 'williamboman/mason-lspconfig.nvim' },
-          { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-        },
-      },
+      { 'williamboman/mason.nvim' },
+      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+      { 'williamboman/mason-lspconfig.nvim' },
     },
-    event = 'VeryLazy',
+    init = function()
+      -- reserve a space in gutter to avoid layout shift
+      vim.opt.signcolumn = 'yes'
+    end,
+    config = function()
+      local lsp_defaults = require('lspconfig').util.default_config
+
+      -- Add cmp_nvim_lsp capabilities settings to lspconfig
+      -- This should be executed before you configure any language server
+      lsp_defaults.capabilities = vim.tbl_deep_extend(
+        'force',
+        lsp_defaults.capabilities,
+        require('cmp_nvim_lsp').default_capabilities()
+      )
+
+      require("mason").setup()
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          "bash-language-server", -- bash: language server
+          "dockerfile-language-server", -- dockerfile: language server
+          "golangci-lint", -- go: lint
+          "gopls", -- go: language server
+          "hadolint", -- dockerfile: lint
+          "luacheck", -- lua: lint and static analysis
+          "lua-language-server", -- lua: language server
+          "rubocop", -- ruby: lint
+          "shellcheck", -- sh: lint
+          "solargraph", -- ruby: language server
+          "spectral", -- openapi: lint lsp
+          "tailwindcss-language-server", -- tailwind css: language server
+          "vacuum", -- openapi: lint
+          "vale", -- prose: lint
+        },
+      })
+      require("mason-lspconfig").setup({
+        handlers = {
+          -- default for anything without a custom handler
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
+          end,
+        }
+      })
+    end,
   },
   { 'hrsh7th/nvim-cmp',
     config = function()
