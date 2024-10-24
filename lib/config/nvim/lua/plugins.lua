@@ -96,7 +96,6 @@ return {
           "rubocop", -- ruby: lint
           "shellcheck", -- sh: lint
           "solargraph", -- ruby: language server
-          "spectral", -- openapi: lint lsp
           "tailwindcss-language-server", -- tailwind css: language server
           "vacuum", -- openapi: lint
           "vale", -- prose: lint
