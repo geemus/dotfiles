@@ -57,10 +57,6 @@ return {
     build = 'make install_jsregexp',
     event = 'VeryLazy',
   },
-  { 'VonHeikemen/lsp-zero.nvim',
-    config = false,
-    lazy = true,
-  },
   { 'neovim/nvim-lspconfig',
     event = {'BufReadPre', 'BufNewFile'},
     dependencies = {
@@ -83,7 +79,7 @@ return {
         require('cmp_nvim_lsp').default_capabilities()
       )
 
-      require("mason").setup()
+      require("mason").setup({})
       require("mason-tool-installer").setup({
         ensure_installed = {
           "bash-language-server", -- bash: language server
@@ -114,8 +110,7 @@ return {
   { 'hrsh7th/nvim-cmp',
     config = function()
       local cmp = require('cmp')
-      local cmp_action = require('lsp-zero').cmp_action()
-      local cmp_format = require('lsp-zero').cmp_format({details = true})
+      local luasnip = require("luasnip")
 
       require("luasnip").add_snippets("supercollider", require("scnvim/utils").get_snippets())
       require('luasnip.loaders.from_lua').lazy_load({paths = "~/.config/nvim/LuaSnip/"})
@@ -128,10 +123,39 @@ return {
           {name = 'buffer'},
         },
         mapping = cmp.mapping.preset.insert({
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({select = true}),
-          ['<Tab>'] = cmp_action.luasnip_supertab(),
-          ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+          ['<CR>'] = cmp.mapping(function(fallback)
+              if cmp.visible() then
+                  if luasnip.expandable() then
+                      luasnip.expand()
+                  else
+                      cmp.confirm({
+                          select = true,
+                      })
+                  end
+              else
+                  fallback()
+              end
+          end),
+
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.locally_jumpable(1) then
+              luasnip.jump(1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
         }),
         formatting = cmp_format, -- show source name
         preselect = cmp.PreselectMode.None,
