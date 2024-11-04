@@ -3,6 +3,7 @@ return {
     fmta(
       [[
         #!/usr/bin/env ruby
+
       ]],
       {}
     )
@@ -11,6 +12,7 @@ return {
     fmta(
       [[
         # frozen_string_literal: true
+
       ]],
       {}
     )
