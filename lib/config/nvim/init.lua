@@ -37,7 +37,7 @@ vim.filetype.add({
 
 -- fold options (some additional settings are done in plugin after treesitter loads)
 vim.opt.foldcolumn = 'auto'
-vim.opt.foldenable = false
+vim.opt.foldlevelstart = 1
 
 -- use lsp folding instead when supported, see :help lsp-core
 -- TODO: awaiting not-yet-released features. See: https://github.com/neovim/neovim/pull/31311
