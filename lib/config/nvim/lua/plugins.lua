@@ -182,6 +182,8 @@ return {
           enable = true -- use treesitter highlighting instead of vim regexes
         }
       }
+      vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.opt.foldmethod = 'expr'
     end,
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-context' },

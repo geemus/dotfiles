@@ -35,6 +35,24 @@ vim.filetype.add({
   }
 })
 
+-- fold options (some additional settings are done in plugin after treesitter loads)
+vim.opt.foldcolumn = 'auto'
+vim.opt.foldenable = false
+
+-- use lsp folding instead when supported, see :help lsp-core
+-- TODO: awaiting not-yet-released features. See: https://github.com/neovim/neovim/pull/31311
+--[[
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client:supports_method('textDocument/foldingRange') then
+      vim.wo.foldmethod = 'expr'
+      vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    end
+  end,
+})
+--]]
+
 -- options
 vim.opt.backup = false        -- do not make a backup before overwriting a file
 vim.opt.conceallevel = 1      -- hide concealed text behind a single or custom character
