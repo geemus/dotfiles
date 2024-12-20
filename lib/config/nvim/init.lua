@@ -37,6 +37,7 @@ vim.filetype.add({
 
 -- options
 vim.opt.backup = false        -- do not make a backup before overwriting a file
+vim.opt.conceallevel = 1      -- hide concealed text behind a single or custom character
 vim.opt.expandtab = true      -- expand tab to spaces in insert mode
 vim.opt.hlsearch = false      -- don't highlight matches after search
 vim.opt.ignorecase = true     -- case-insensitive searching

@@ -189,6 +189,28 @@ return {
     event = 'VeryLazy',
   },
   { 'nvim-tree/nvim-web-devicons' },
+  { 'epwalsh/obsidian.nvim',
+    version = "*",
+    lazy = true,
+    event = {
+      "BufReadPre " .. vim.fn.expand "~" .. "/Documents/*.md",
+      "BufNewFile " .. vim.fn.expand "~" .. "/Documents/*.md",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+    opts = {
+      picker = {
+        name = "fzf-lua",
+      },
+      workspaces = {
+        {
+          name = "remote",
+          path = "~/Documents/obsidian-remote",
+        },
+      }
+    }
+  },
   { 'stevearc/oil.nvim',
     config = function()
       require('oil').setup()
