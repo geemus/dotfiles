@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- options
 vim.opt.backup = false        -- do not make a backup before overwriting a file
-vim.opt.conceallevel = 1      -- hide concealed text behind a single or custom character
+vim.opt.conceallevel = 2      -- hide concealed text unless replacement is defined
 vim.opt.expandtab = true      -- expand tab to spaces in insert mode
 vim.opt.foldlevel = 99        -- start with everything open
 vim.opt.hlsearch = false      -- don't highlight matches after search
