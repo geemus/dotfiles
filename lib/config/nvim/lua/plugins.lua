@@ -57,6 +57,13 @@ return {
     build = 'make install_jsregexp',
     event = 'VeryLazy',
   },
+  { 'echasnovski/mini.surround',
+    config = function()
+      require('mini.surround').setup()
+    end,
+    event = 'VeryLazy',
+    version = '*',
+  },
   { 'neovim/nvim-lspconfig',
     event = {'BufReadPre', 'BufNewFile'},
     dependencies = {
@@ -263,12 +270,6 @@ return {
       vim.keymap.set('n', '<leader><leader>tl', '<cmd>Trouble loclist toggle<cr>')
       vim.keymap.set('n', '<leader><leader>tq', '<cmd>Trouble qflist toggle<cr>')
     end,
-    event = 'VeryLazy',
-  },
-  { 'tpope/vim-surround',
-    dependencies = {
-      "tpope/vim-repeat"
-    },
     event = 'VeryLazy',
   },
   { "folke/which-key.nvim",
