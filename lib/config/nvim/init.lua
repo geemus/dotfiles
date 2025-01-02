@@ -35,10 +35,6 @@ vim.filetype.add({
   }
 })
 
--- fold options (some additional settings are done in plugin after treesitter loads)
-vim.opt.foldcolumn = 'auto'
-vim.opt.foldlevelstart = 1
-
 -- use lsp folding instead when supported, see :help lsp-core
 -- TODO: awaiting not-yet-released features. See: https://github.com/neovim/neovim/pull/31311
 --[[
@@ -57,6 +53,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.opt.backup = false        -- do not make a backup before overwriting a file
 vim.opt.conceallevel = 1      -- hide concealed text behind a single or custom character
 vim.opt.expandtab = true      -- expand tab to spaces in insert mode
+vim.opt.foldlevel = 99        -- start with everything open
 vim.opt.hlsearch = false      -- don't highlight matches after search
 vim.opt.ignorecase = true     -- case-insensitive searching
 vim.opt.incsearch = true      -- incrementally highlight during search
