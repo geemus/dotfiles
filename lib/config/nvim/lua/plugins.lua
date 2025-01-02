@@ -212,6 +212,9 @@ return {
       "nvim-lua/plenary.nvim"
     },
     opts = {
+      follow_url_func = function(url)
+        vim.ui.open(url)
+      end,
       picker = {
         name = "fzf-lua",
       },
