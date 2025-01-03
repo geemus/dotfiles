@@ -212,11 +212,20 @@ return {
       "nvim-lua/plenary.nvim"
     },
     opts = {
+      daily_notes = {
+        folder = "Daily",
+        date_format = "%Y/%m-%b/%Y-%m-%d-%a",
+        default_tags = {},
+        template = "daily.md",
+      },
       follow_url_func = function(url)
         vim.ui.open(url)
       end,
       picker = {
         name = "fzf-lua",
+      },
+      templates = {
+        folder = "Templates",
       },
       workspaces = {
         {
