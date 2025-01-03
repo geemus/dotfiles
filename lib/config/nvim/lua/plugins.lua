@@ -227,6 +227,12 @@ return {
       templates = {
         folder = "Templates",
       },
+      ui = {
+        checkboxes = {
+          [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+          ["x"] = { char = "", hl_group = "ObsidianDone" },
+        },
+      },
       workspaces = {
         {
           name = "remote",
