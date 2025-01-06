@@ -87,6 +87,10 @@ vim.keymap.set('n', '<leader>t', ':FzfLua files<CR>')
 vim.keymap.set('n', '<leader>f', ':FzfLua grep_curbuf<CR>')
 vim.keymap.set('n', '<leader><leader>f', ':FzfLua grep_project<CR>')
 
+-- leader: luasnip commands
+vim.keymap.set('i', '<C-s>', '<CMD>lua require("luasnip.extras.select_choice")()<CR>')
+vim.keymap.set('n', '<C-s>', '<CMD>lua require("luasnip.extras.select_choice")()<CR>')
+
 -- leader: system clipboard commands
 vim.keymap.set({'n', 'v'}, '<leader>d', '"+d')
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')

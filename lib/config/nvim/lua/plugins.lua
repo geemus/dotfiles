@@ -204,12 +204,14 @@ return {
   { 'epwalsh/obsidian.nvim',
     version = "*",
     lazy = true,
+    config = function()
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
     event = {
       "BufReadPre " .. vim.fn.expand "~" .. "/Documents/obsidian-remote/*.md",
       "BufNewFile " .. vim.fn.expand "~" .. "/Documents/obsidian-remote/*.md",
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim"
     },
     opts = {
       daily_notes = {
