@@ -205,8 +205,8 @@ return {
     version = "*",
     lazy = true,
     event = {
-      "BufReadPre " .. vim.fn.expand "~" .. "/Documents/*.md",
-      "BufNewFile " .. vim.fn.expand "~" .. "/Documents/*.md",
+      "BufReadPre " .. vim.fn.expand "~" .. "/Documents/obsidian-remote/*.md",
+      "BufNewFile " .. vim.fn.expand "~" .. "/Documents/obsidian-remote/*.md",
     },
     dependencies = {
       "nvim-lua/plenary.nvim"
