@@ -204,8 +204,6 @@ return {
   { 'epwalsh/obsidian.nvim',
     version = "*",
     lazy = true,
-    config = function()
-    end,
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
