@@ -19,6 +19,10 @@ return {
     },
   },
   { 'ibhagwan/fzf-lua',
+    config = function()
+      require('fzf-lua').setup()
+      require('fzf-lua').register_ui_select()
+    end,
     event = 'VeryLazy',
   },
   { 'lewis6991/gitsigns.nvim',
