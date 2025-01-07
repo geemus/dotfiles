@@ -221,6 +221,22 @@ return {
       follow_url_func = function(url)
         vim.ui.open(url)
       end,
+      -- Optional, customize how note IDs are generated given an optional title.
+      ---@param title string|?
+      ---@return string
+      note_id_func = function(title)
+        local note_id = ""
+        if title ~= nil then
+          -- If title is given, transform it into valid file name.
+          note_id = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+        else
+          -- If title is nil, just add 6 random uppercase letters to the suffix.
+          for _ = 1, 6 do
+            note_id = note_id .. string.char(math.random(65, 90))
+          end
+        end
+        return note_id
+      end,
       picker = {
         name = "fzf-lua",
       },
