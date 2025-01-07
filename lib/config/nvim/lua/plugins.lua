@@ -221,6 +221,39 @@ return {
       follow_url_func = function(url)
         vim.ui.open(url)
       end,
+      -- Optional, alternatively you can customize the frontmatter data.
+      ---@return table
+      note_frontmatter_func = function(note)
+        -- Add the title of the note as an alias.
+        if note.title then
+          note:add_alias(note.title)
+        end
+
+        -- Set created to birthtime for existing files or now for new files
+        local created = os.time()
+        if note.path ~= nil and note.path:is_file() then
+          local stat = note.path:stat()
+          created = stat['birthtime']['sec']
+        end
+
+        local out = {
+          id = note.id,
+          aliases = note.aliases,
+          created = os.date("%Y-%m-%d %H:%M", created),
+          date = os.date("%Y-%m-%d", created),
+          tags = note.tags
+        }
+
+        -- `note.metadata` contains any manually added fields in the frontmatter.
+        -- So here we just make sure those fields are kept in the frontmatter.
+        if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+          for k, v in pairs(note.metadata) do
+            out[k] = v
+          end
+        end
+
+        return out
+      end,
       -- Optional, customize how note IDs are generated given an optional title.
       ---@param title string|?
       ---@return string
