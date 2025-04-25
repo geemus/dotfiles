@@ -145,3 +145,7 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+# for compilers
+#export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/openssl@3.0/lib"
+#export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/openssl@3.0/include"
