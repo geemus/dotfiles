@@ -81,10 +81,10 @@ return {
       end
 
       local function system_as_first_message(messages, config)
-        if config.system then
+        if config.params.system then
           table.insert(messages, 1, {
             role = 'system',
-            content = config.system,
+            content = config.params.system,
           })
         end
 
