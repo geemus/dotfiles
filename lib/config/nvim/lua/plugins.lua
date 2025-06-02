@@ -18,6 +18,9 @@ return {
       "BufNewFile",
     },
   },
+  { 'jghauser/follow-md-links.nvim',
+    event = 'VeryLazy'
+  },
   { 'ibhagwan/fzf-lua',
     config = function()
       require('fzf-lua').setup()
