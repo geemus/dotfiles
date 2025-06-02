@@ -126,3 +126,6 @@ vim.keymap.set({'n', 'v'}, '<C-L>', '<C-W><C-L>')
 -- tab for next tab, shift-tab for previous tab
 vim.keymap.set('n', '<Tab>', ":tabn<CR>")
 vim.keymap.set('n', '<S-Tab>', ":tabp<CR>")
+
+-- backspace to return to previous file
+vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
