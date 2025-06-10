@@ -75,43 +75,8 @@ return {
     'gsuuon/model.nvim',
     cmd = { 'M', 'Model', 'Mchat' },
     config = function()
-      local chats = require('model.prompts.chats')
-      local openai = require('model.providers.openai')
-      local util = require('model.util')
-
-      local function input_if_selection(input, context)
-        return context.selection and input or ''
-      end
-
-      local function system_as_first_message(messages, config)
-        if config.params.system then
-          table.insert(messages, 1, {
-            role = 'system',
-            content = config.params.system,
-          })
-        end
-
-        return { messages = messages }
-      end
-
-      require("model").setup({
-        chats = vim.tbl_extend('force', chats, {
-          perplexity = {
-            create = input_if_selection,
-            params = {
-              model = 'sonar'
-            },
-            provider = openai,
-            run = system_as_first_message,
-            runOptions = function()
-              return {
-                authorization = 'Bearer ' .. util.env('PERPLEXITY_API_KEY'),
-                stream = true,
-                url = 'https://api.perplexity.ai'
-              }
-            end,
-          },
-        })
+      require('model').setup({
+        default_prompt = require('model.prompts.starters')['anthropic:claude-code'],
       })
     end,
     init = function()
