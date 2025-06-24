@@ -71,7 +71,6 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  asdf
   brew
   bundler
   fzf
@@ -119,29 +118,13 @@ source ~/.aliases
 # setup for fzf, normally `find * -type f` which omits . files
 export FZF_DEFAULT_COMMAND="find -type f"
 
-# setup for go
-. ~/.asdf/plugins/golang/set-env.zsh
-
 # add cargo to path
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# add gobin to path
-asdf_update_golang_bin() {
-  local go_path
-  go_path="$(asdf which go)"
-  if [[ -n "${go_path}" ]]; then
-    export PATH="$PATH:${go_path}"
-  fi
-}
-autoload -U add-zsh-hook
-add-zsh-hook precmd asdf_update_golang_bin
 
 # For pg and sequel_pg gem installs that uses pg_config to find the include dirs
 export PATH="$PATH:${HOMEBREW_PREFIX}/opt/postgresql@15/bin"
 
 source $ZSH/oh-my-zsh.sh
-
-. $(brew --prefix asdf)/libexec/asdf.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
@@ -149,3 +132,5 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 # for compilers
 #export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/openssl@3.0/lib"
 #export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/openssl@3.0/include"
+
+eval "$(mise activate zsh)"
