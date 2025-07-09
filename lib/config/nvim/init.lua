@@ -96,6 +96,7 @@ vim.keymap.set({'i', 'n'}, '<C-s>', '<CMD>lua require("luasnip.extras.select_cho
 vim.keymap.set({'n', 'v'}, '<leader>d', '"+d')
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader><leader>y', ':%+y<cr>')
 
 -- leader: tc for close tab, tm for tab move, tn for new tab
 vim.keymap.set('n', '<leader><leader>tc', ':tabclose<cr>')
