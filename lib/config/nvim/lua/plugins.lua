@@ -151,7 +151,7 @@ return {
       local cmp = require('cmp')
       local luasnip = require("luasnip")
 
-      require("luasnip").add_snippets("supercollider", require("scnvim/utils").get_snippets())
+      -- require("luasnip").add_snippets("supercollider", require("scnvim/utils").get_snippets())
       require('luasnip.loaders.from_lua').lazy_load({paths = "~/.config/nvim/LuaSnip/"})
 
       cmp.setup({
