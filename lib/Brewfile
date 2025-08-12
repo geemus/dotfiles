@@ -1,5 +1,3 @@
-tap "homebrew/services"
-
 brew "bat"
 brew "curl"
 brew "fzf"
