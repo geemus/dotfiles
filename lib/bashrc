@@ -63,3 +63,5 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
