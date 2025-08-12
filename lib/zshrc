@@ -81,7 +81,6 @@ plugins=(
   rails
   rake
   ruby
-  tmux
 )
 
 autoload -U promptinit; promptinit
@@ -128,7 +127,6 @@ export PATH="$PATH:${HOMEBREW_PREFIX}/opt/postgresql@15/bin"
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 # for compilers
 #export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/openssl@3.0/lib"
