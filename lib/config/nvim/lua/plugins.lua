@@ -79,6 +79,7 @@ return {
         default_prompt = require('model.prompts.starters')['anthropic:claude-code'],
       })
     end,
+    event = 'VeryLazy',
     init = function()
       vim.filetype.add({
         extension = {
@@ -232,7 +233,7 @@ return {
   { 'nvim-tree/nvim-web-devicons' },
   { 'epwalsh/obsidian.nvim',
     version = "*",
-    lazy = true,
+    lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
