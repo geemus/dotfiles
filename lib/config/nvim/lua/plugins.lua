@@ -130,7 +130,6 @@ return {
           "lua-language-server", -- lua: language server
           "rubocop", -- ruby: lint
           "shellcheck", -- sh: lint
-          "solargraph", -- ruby: language server
           "tailwindcss-language-server", -- tailwind css: language server
           "vacuum", -- openapi: lint
           "vale", -- prose: lint
