@@ -240,7 +240,8 @@ return {
     version = "*",
     lazy = false,
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
+      "ishan9299/nvim-solarized-lua",
     },
     event = {
       "BufReadPre " .. vim.fn.expand "~" .. "/Documents/obsidian-remote/*.md",
