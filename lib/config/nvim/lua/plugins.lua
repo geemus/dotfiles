@@ -52,7 +52,7 @@ return {
   { 'nvim-lualine/lualine.nvim',
     config = function()
       require('lualine').setup {
-        options = { theme = 'solarized-dark' }
+        options = { theme = 'solarized_dark' }
       }
     end,
     dependencies = {
@@ -240,8 +240,8 @@ return {
     version = "*",
     lazy = false,
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "ishan9299/nvim-solarized-lua",
+      { "nvim-lua/plenary.nvim" },
+      { "ishan9299/nvim-solarized-lua" },
     },
     event = {
       "BufReadPre " .. vim.fn.expand "~" .. "/Documents/obsidian-remote/*.md",
