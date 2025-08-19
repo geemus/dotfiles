@@ -19,9 +19,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('plugins')
 
--- set colorscheme
-vim.cmd.colorscheme("solarized")
-
 -- add extra filetype mapping
 vim.filetype.add({
   extension = {

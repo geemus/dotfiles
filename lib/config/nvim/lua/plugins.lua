@@ -52,12 +52,11 @@ return {
   { 'nvim-lualine/lualine.nvim',
     config = function()
       require('lualine').setup {
-        options = { theme = 'solarized_dark' }
+        options = { theme = 'solarized-dark' }
       }
     end,
     dependencies = {
-      { 'nvim-tree/nvim-web-devicons' },
-      { 'ishan9299/nvim-solarized-lua' },
+      { 'nvim-tree/nvim-web-devicons' }
     },
   },
   { 'L3MON4D3/LuaSnip',
@@ -212,6 +211,12 @@ return {
       { 'saadparwaiz1/cmp_luasnip' },
     },
     event = 'InsertEnter',
+  },
+  { 'ishan9299/nvim-solarized-lua',
+    config = function()
+      vim.cmd.colorscheme 'solarized'
+    end,
+    lazy = false,
   },
   { 'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
