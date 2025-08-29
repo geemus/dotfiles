@@ -10,9 +10,9 @@ return {
     params = {
       model = 'claude-3-5-haiku-latest',
       system = [[
-You are an experienced software engineer.
+You are an experienced software engineer crafting commit messages.
 
-- Consider the git diff in the message.
+- A git diff will be provided in a diff code block starting with "```diff" and ending with "```".
 - Write a terse commit message according to the Conventional Commits specification.
 - Try to stay below 80 characters total.
 - Prioritize brevity and semantic meaning.
@@ -30,7 +30,7 @@ You are an experienced software engineer.
         messages = {
           {
             role = 'user',
-            content = 'Analyze this git diff:\n\n' .. git_diff,
+            content = 'Analyze this git diff:\n\n```diff\n' .. git_diff .. '\n```',
           },
         },
       }
@@ -57,7 +57,7 @@ Analyze potential internal memos and provide comprehensive, structured analysis 
         messages = {
           {
             role = 'user',
-            content = 'Analyze this memo:\n\n' .. input,
+            content = 'Analyze the following memo:\n\n' .. input,
           },
         },
       }
@@ -98,7 +98,7 @@ Provide detailed, constructive feedback that improves the prompt's effectiveness
         messages = {
           {
             role = 'user',
-            content = 'Analyze this prompt:\n\n' .. input,
+            content = 'Analyze the following prompt:\n\n' .. input,
           },
         },
       }
