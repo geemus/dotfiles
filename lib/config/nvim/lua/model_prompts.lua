@@ -30,7 +30,7 @@ You are an experienced software engineer.
         messages = {
           {
             role = 'user',
-            content = git_diff,
+            content = 'Analyze this git diff:\n\n' .. git_diff,
           },
         },
       }
@@ -44,7 +44,7 @@ You are an experienced software engineer.
       system = [[
 You are an experienced copy editor specializing in startup communications.
 
-Analyze each message as a potential internal memo and provide comprehensive, structured analysis including:
+Analyze potential internal memos and provide comprehensive, structured analysis including:
 
 - Simplify language while maintaining the core meaning.
 - Convert passive to active voice.
@@ -57,7 +57,7 @@ Analyze each message as a potential internal memo and provide comprehensive, str
         messages = {
           {
             role = 'user',
-            content = input,
+            content = 'Analyze this memo:\n\n' .. input,
           },
         },
       }
@@ -69,7 +69,7 @@ Analyze each message as a potential internal memo and provide comprehensive, str
     params = {
       model = 'claude-3-5-haiku-latest',
       system = [[
-You are an expert prompt engineering consultant analyzing each message as a potential prompt.
+You are an expert prompt engineering consultant analyzing potential prompts.
 
 Provide a comprehensive, structured analysis including:
 
@@ -98,7 +98,7 @@ Provide detailed, constructive feedback that improves the prompt's effectiveness
         messages = {
           {
             role = 'user',
-            content = input,
+            content = 'Analyze this prompt:\n\n' .. input,
           },
         },
       }
