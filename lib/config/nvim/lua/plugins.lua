@@ -74,8 +74,11 @@ return {
     'gsuuon/model.nvim',
     cmd = { 'M', 'Model', 'Mchat' },
     config = function()
+      local prompts = require('model.prompts.starters')
+
       require('model').setup({
         default_prompt = require('model.prompts.starters')['anthropic:claude-code'],
+        prompts = vim.tbl_extend('force', prompts, require('model_prompts')),
       })
     end,
     event = 'VeryLazy',
