@@ -63,7 +63,7 @@ return {
     build = 'make install_jsregexp',
     event = 'VeryLazy',
   },
-  { 'echasnovski/mini.surround',
+  { 'nvim-mini/mini.surround',
     config = function()
       require('mini.surround').setup()
     end,
