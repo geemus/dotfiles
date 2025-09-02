@@ -18,8 +18,10 @@ return {
       "BufNewFile",
     },
   },
-  { 'jghauser/follow-md-links.nvim',
-    event = 'VeryLazy'
+  {
+    'jghauser/follow-md-links.nvim',
+    event = 'VeryLazy',
+    ft = 'markdown',
   },
   { 'ibhagwan/fzf-lua',
     config = function()
