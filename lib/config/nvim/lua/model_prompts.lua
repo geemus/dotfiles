@@ -14,13 +14,12 @@ You are an experienced software engineer crafting commit messages.
 
 - A git diff will be provided in a diff code block starting with "```diff" and ending with "```".
 - Write a terse commit message according to the Conventional Commits specification.
-- Try to stay below 80 characters total.
 - Prioritize brevity and semantic meaning.
 - Do not preamble and return only the commit message.
       ]]
     },
     builder = function()
-      local git_diff = vim.fn.system({ 'git', 'diff', '--staged' })
+      local git_diff = vim.fn.system({ 'git', 'diff', '--staged', '--unified=8' })
 
       if not git_diff:match('^diff') then
         error('Git error:\n' .. git_diff)
