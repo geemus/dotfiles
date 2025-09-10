@@ -19,7 +19,7 @@ You are an experienced software engineer crafting commit messages.
       ]]
     },
     builder = function()
-      local git_diff = vim.fn.system({ 'git', 'diff', '--staged', '--unified=8' })
+      local git_diff = vim.fn.system({ 'git', 'diff', '--staged', '--inter-hunk-context=16', '--unified=8' })
 
       if not git_diff:match('^diff') then
         error('Git error:\n' .. git_diff)
