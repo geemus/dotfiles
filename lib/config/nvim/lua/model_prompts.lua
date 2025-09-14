@@ -1,4 +1,5 @@
 local anthropic = require('model.providers.anthropic')
+local perplexity = require('model.providers.perplexity')
 
 -- utils
 local mode = require('model').mode
@@ -98,6 +99,46 @@ Provide detailed, constructive feedback that improves the prompt's effectiveness
           {
             role = 'user',
             content = 'Analyze the following prompt:\n\n' .. input,
+          },
+        },
+      }
+    end,
+  },
+  recipe = {
+    provider = perplexity,
+    mode = mode.APPEND,
+    params = {
+      model = 'sonar',
+      system = [[
+You are an experienced assistant.
+
+You will be provided with a url for a recipe.
+
+Review the provided url and extract the recipe in this format:
+
+<recipe>
+## {recipe-name}
+
+* {first-quantity} {first-ingredient}
+* {second-quantity} {second-ingredient}
+...
+
+1. {first-step}
+2. {second-step}
+...
+
+Adapted from [{site-title}]({url})
+</recipe>
+
+Only include the extracted recipe starting with <recipe> on the line before and ending with </recipe> on the line after.
+            ]]
+    },
+    builder = function(input)
+      return {
+        messages = {
+          {
+            role = 'user',
+            content = 'Extract the recipe from the following url:' .. input,
           },
         },
       }
