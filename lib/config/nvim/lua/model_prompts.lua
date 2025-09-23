@@ -4,9 +4,6 @@ local perplexity = require('model.providers.perplexity')
 -- utils
 local mode = require('model').mode
 
--- prompt helpers
-local extract = require('model.prompts.extract')
-
 return {
   commit = {
     provider = anthropic,
@@ -17,13 +14,13 @@ return {
 You are an experienced software engineer crafting commit messages.
 
 - A git diff will be provided in a diff code block starting with "```diff" and ending with "```".
-- Write a commit message according to the Conventional Commits specification.
+- Do not preamble.
+- Before providing the commit message, show step-by-step reasoning in clear, logical order starting each line with `# `.
 - Prioritize brevity and semantic meaning.
-- The tile should provide a clear summary in 50 characters or less, be all lowercase, and have no period at the end.
+- Write a commit message according to the Conventional Commits specification.
+- The title should provide a clear summary in 50 characters or less, be all lowercase, and have no period at the end.
 - The optional body should explain **why**, not just **what**
 - Bullet points should be high level, concise, and start with '-'.
-- Before providing the commit message, show step-by-step reasoning in clear, logical order starting with <think> on the line before and ending with </think> on the line after.
-- Write ``` on the line before the commit message and ``` on the line after.
       ]]
     },
     builder = function()
@@ -41,8 +38,7 @@ You are an experienced software engineer crafting commit messages.
           },
         },
       }
-    end,
-    transform = extract.markdown_code,
+    end
   },
   copyedit = {
     provider = anthropic,
