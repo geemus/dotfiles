@@ -21,6 +21,7 @@ You are an experienced software engineer crafting commit messages.
 - The title should provide a clear summary in 50 characters or less, be all lowercase, and have no period at the end.
 - The optional body should explain **why**, not just **what**
 - Bullet points should be high level, concise, and start with '-'.
+- Just write the message directly, do not wrap the message in "```".
       ]]
     },
     builder = function()
