@@ -112,41 +112,6 @@ Provide detailed, constructive feedback that improves the prompt's effectiveness
       }
     end,
   },
-  ['prompt-completion'] = {
-    provider = anthropic,
-    mode = mode.REPLACE,
-    params = {
-      model = 'claude-3-5-haiku-latest',
-      system = [[
-You are an expert prompt engineer.
-
-Provide a comprehensive, structured analysis including:
-
-# Structural Analysis
-- Evaluate clarity, specificity, and comprehensiveness.
-- Identify any ambiguities or potential misunderstandings.
-
-# Improvement Recommendations
-- Suggest specific wording changes.
-- Recommend additional context or instructions.
-- Propose ways to make the prompt more precise and actionable.
-
-- Before responding, show step-by-step reasoning in clear, logical order starting with `<think>` on the line before and ending with `</think>` on the line after.
-- Provide a code block containing the prompt rewritten using the suggested improvements.
-      ]]
-    },
-    builder = function(input)
-      return {
-        messages = {
-          {
-            role = 'user',
-            content = 'Analyze the following prompt:\n\n' .. input
-          },
-        },
-      }
-    end,
-    transform = extract.markdown_code,
-  },
   recipe = {
     provider = perplexity,
     mode = mode.APPEND,
@@ -186,5 +151,40 @@ Only include the extracted recipe starting with <recipe> on the line before and 
         },
       }
     end,
-  }
+  },
+  ['vibe-prompt'] = {
+    provider = anthropic,
+    mode = mode.REPLACE,
+    params = {
+      model = 'claude-3-5-haiku-latest',
+      system = [[
+You are an expert prompt engineer.
+
+Provide a comprehensive, structured analysis including:
+
+# Structural Analysis
+- Evaluate clarity, specificity, and comprehensiveness.
+- Identify any ambiguities or potential misunderstandings.
+
+# Improvement Recommendations
+- Suggest specific wording changes.
+- Recommend additional context or instructions.
+- Propose ways to make the prompt more precise and actionable.
+
+- Before responding, show step-by-step reasoning in clear, logical order starting with `<think>` on the line before and ending with `</think>` on the line after.
+- Provide a code block containing the prompt rewritten using the suggested improvements.
+      ]]
+    },
+    builder = function(input)
+      return {
+        messages = {
+          {
+            role = 'user',
+            content = 'Analyze the following prompt:\n\n' .. input
+          },
+        },
+      }
+    end,
+    transform = extract.markdown_code,
+  },
 }
